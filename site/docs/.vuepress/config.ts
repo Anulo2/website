@@ -16,6 +16,11 @@ export default defineUserConfig<DefaultThemeOptions>({
       title: "grammY",
       description: "Telegram Bot 框架",
     },
+    "/it/": {
+      lang: "it-IT",
+      title: "grammY",
+      description: "Telegram Bot Framework",
+    }
   },
   shouldPrefetch: true,
 
@@ -137,6 +142,304 @@ export default defineUserConfig<DefaultThemeOptions>({
                   {
                     text: "Deployment Checklist",
                     link: "/advanced/deployment.md",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            text: "Plugins",
+            children: [
+              {
+                text: "Introduction",
+                children: [
+                  {
+                    text: "About Plugins",
+                    link: "/plugins/README.md",
+                  },
+                ],
+              },
+              {
+                text: "Official",
+                children: [
+                  {
+                    text: "Sessions and storing data (built-in)",
+                    link: "/plugins/session.md",
+                  },
+                  {
+                    text: "Keyboards and Inline Keyboards (built-in)",
+                    link: "/plugins/keyboard.md",
+                  },
+                  {
+                    text: "Interactive menus (menu)",
+                    link: "/plugins/menu.md",
+                  },
+                  {
+                    text: "Stateless Question (stateless-question)",
+                    link: "/plugins/stateless-question.md",
+                  },
+                  {
+                    text: "Concurrency (runner)",
+                    link: "/plugins/runner.md",
+                  },
+                  {
+                    text: "Hydration (hydrate)",
+                    link: "/plugins/hydrate.md",
+                  },
+                  {
+                    text: "Retry API requests (auto-retry)",
+                    link: "/plugins/auto-retry.md",
+                  },
+                  {
+                    text: "Flood control (transformer-throttler)",
+                    link: "/plugins/transformer-throttler.md",
+                  },
+                  {
+                    text: "Rate limit users (ratelimiter)",
+                    link: "/plugins/ratelimiter.md",
+                  },
+                  {
+                    text: "Files (files)",
+                    link: "/plugins/files.md",
+                  },
+                  {
+                    text: "Internationalization (i18n)",
+                    link: "/plugins/i18n.md",
+                  },
+                  {
+                    text: "Router (router)",
+                    link: "/plugins/router.md",
+                  },
+                  {
+                    text: "Parse Mode (parse-mode)",
+                    link: "/plugins/parse-mode.md",
+                  },
+                  {
+                    text: "Command filtering (command-fiter)",
+                    link: "/plugins/command-filter.md",
+                  },
+                ],
+              },
+              {
+                text: "Third-party",
+                children: [
+                  {
+                    text: "Console time",
+                    link: "/plugins/console-time.md",
+                  },
+                  {
+                    text: "[Submit your PR!]",
+                    link:
+                      "/plugins/README.md#submitting-your-own-package-to-the-docs",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            text: "Examples",
+            children: [
+              {
+                text: "Examples",
+                children: [
+                  {
+                    text: "Example Bots Repository",
+                    link: "https://github.com/grammyjs/examples",
+                  },
+                  {
+                    text: "Live Browser Demo",
+                    link: "/demo/README.md",
+                  },
+                  { text: "Example Bots", link: "/demo/examples.md" },
+                  {
+                    text: "Community Showlounge",
+                    link: "/demo/showlounge.md",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            text: "Resources",
+            children: [
+              {
+                text: "grammY",
+                children: [
+                  {
+                    text: "Community Chat",
+                    link: "https://t.me/grammyjs",
+                  },
+                  {
+                    text: "Awesome grammY",
+                    link: "https://github.com/grammyjs/awesome-grammY",
+                  },
+                  {
+                    text: "News",
+                    link: "https://t.me/grammyjs_news",
+                  },
+                  {
+                    text: "FAQ",
+                    link: "/resources/faq.md",
+                  },
+                  {
+                    text: "Comparison to other frameworks",
+                    link: "/resources/comparison.md",
+                  },
+                ],
+              },
+              {
+                text: "Telegram",
+                children: [
+                  {
+                    text: "Introduction for Developers",
+                    link: "https://core.telegram.org/bots",
+                  },
+                  {
+                    text: "Bots FAQ",
+                    link: "https://core.telegram.org/bots/faq",
+                  },
+                  {
+                    text: "Bot API Reference",
+                    link: "https://core.telegram.org/bots/api",
+                  },
+                ],
+              },
+              {
+                text: "Hosting",
+                children: [
+                  {
+                    text: "Heroku",
+                    link: "/hosting/heroku.md",
+                  },
+                  {
+                    text: "Google Cloud Functions",
+                    link: "/hosting/gcf.md",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            text: "API Reference",
+            link: "https://doc.deno.land/https/deno.land/x/grammy/mod.ts",
+          },
+        ],
+      },
+      "/it/": {
+        selectLanguageName: "Italiano",
+        editLinkText: "Modifica questa pagina su GitHub",
+        notFound: [
+          "Non trovato",
+          "No.",
+          "Non c'è nulla qua",
+          "Errore 404/ La pagina non è stata trovata/ Un Haiku Invece",
+          "Così marlena,",
+        ],
+        backToHome: "Torna a casa",
+        navbar: [
+          { text: "Guide", link: "/it/guide/" },
+          {
+            text: "Impara",
+            children: [
+              {
+                text: "Guida",
+                children: [
+                  {
+                    text: "Panoramica",
+                    link: "/it/guide/README.md",
+                  },
+                  {
+                    text: "Introduzione",
+                    link: "/it/guide/introduction.md",
+                  },
+                  {
+                    text: "Iniziare",
+                    link: "/it/guide/getting-started.md",
+                  },
+                  {
+                    text: "Ricevere e mandare messaggi",
+                    link: "/it/guide/basics.md",
+                  },
+                  {
+                    text: "Contesto",
+                    link: "/it/guide/context.md",
+                  },
+                  {
+                    text: "Bot API",
+                    link: "/it/guide/api.md",
+                  },
+                  {
+                    text: "Filtrare le query e bot.on()",
+                    link: "/it/guide/filter-queries.md",
+                  },
+                  {
+                    text: "Comandi",
+                    link: "/it/guide/commands.md",
+                  },
+                  {
+                    text: "Intermediario",
+                    link: "/it/guide/middleware.md",
+                  },
+                  {
+                    text: "Gestione degli errori",
+                    link: "/it/guide/errors.md",
+                  },
+                  {
+                    text: "Query in linea",
+                    link: "/it/guide/inline-queries.md",
+                  },
+                  {
+                    text: "Gestione dei file",
+                    link: "/it/guide/files.md",
+                  },
+                  {
+                    text: "Giochi",
+                    link: "/it/guide/games.md",
+                  },
+                  {
+                    text: "Richieste continue vs. Webhook",
+                    link: "/it/guide/deployment-types.md",
+                  },
+                ],
+              },
+              {
+                text: "Avanzate",
+                children: [
+                  {
+                    text: "Panoramica",
+                    link: "/it/advanced/README.md",
+                  },
+                  {
+                    text: "Riorganizzare l'intermediario",
+                    link: "/it/advanced/middleware.md",
+                  },
+                  {
+                    text: "Scalare I: grande base di codice",
+                    link: "/it/advanced/structuring.md",
+                  },
+                  {
+                    text: "Scalare II: Grandi carichi",
+                    link: "/it/advanced/scaling.md",
+                  },
+                  {
+                    text: "Scalare III: Affidabilità",
+                    link: "/it/advanced/reliability.md",
+                  },
+                  {
+                    text: "Scalare IV: Limitazioni per flood",
+                    link: "/it/advanced/flood.md",
+                  },
+                  {
+                    text: "Bot API Transformers",
+                    link: "/it/advanced/transformers.md",
+                  },
+                  {
+                    text: "Supporto ai proxy",
+                    link: "/it/advanced/proxy.md",
+                  },
+                  {
+                    text: "Indicazioni per rilasciarlo",
+                    link: "/it/advanced/deployment.md",
                   },
                 ],
               },

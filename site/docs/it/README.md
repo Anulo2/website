@@ -25,10 +25,10 @@ permalink: /
   'corre più veloce di te',
   'sempre un  passo avanti',
   'fa tutto tranne il caffè',
-  'facile come bere un bicchiere d'acqua'
+  'facile come bere un bicchiere d\'acqua'
 ][Math.floor(Math.random() * 6)] }}.</h6>
 
-## Quickstart
+## Panoramica
 
 I bot sono scritti in [TypeScript](https://www.typescriptlang.org) (oppure JavaScript) e funzionano su varie piattaforme, incluso [Node.js](https://nodejs.org).
 
@@ -79,7 +79,7 @@ bot.start();
 </CodeGroupItem>
 </CodeGroup>
 
-Works! :tada:
+Funziona! :tada:
 
 ---
 
