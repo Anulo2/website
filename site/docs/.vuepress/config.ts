@@ -326,13 +326,14 @@ export default defineUserConfig<DefaultThemeOptions>({
         ],
       },
       "/it/": {
+        selectLanguageText: "Lingue",
         selectLanguageName: "Italiano",
         editLinkText: "Modifica questa pagina su GitHub",
         notFound: [
           "Non trovato",
           "No.",
           "Non c'è nulla qua",
-          "Errore 404/ La pagina non è stata trovata/ Un Haiku Invece",
+          "Errore 404/La pagina non è stata trovata",
           "Così marlena,",
         ],
         backToHome: "Torna a casa",
@@ -446,46 +447,46 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
           },
           {
-            text: "Plugins",
+            text: "Estensioni",
             children: [
               {
-                text: "Introduction",
+                text: "Introduzione",
                 children: [
                   {
-                    text: "About Plugins",
-                    link: "/plugins/README.md",
+                    text: "Riguardo le Estensioni",
+                    link: "/it/plugins/README.md",
                   },
                 ],
               },
               {
-                text: "Official",
+                text: "Ufficiali",
                 children: [
                   {
-                    text: "Sessions and storing data (built-in)",
-                    link: "/plugins/session.md",
+                    text: "Sessioni e salvare dati (built-in)",
+                    link: "/it/plugins/session.md",
                   },
                   {
-                    text: "Keyboards and Inline Keyboards (built-in)",
-                    link: "/plugins/keyboard.md",
+                    text: "Tastiere e Tastiere in linea (built-in)",
+                    link: "/it/plugins/keyboard.md",
                   },
                   {
-                    text: "Interactive menus (menu)",
-                    link: "/plugins/menu.md",
+                    text: "Menu iterativi (menu)",
+                    link: "/it/plugins/menu.md",
                   },
                   {
-                    text: "Stateless Question (stateless-question)",
-                    link: "/plugins/stateless-question.md",
+                    text: "Domande prive di stato (stateless-question)",
+                    link: "/it/plugins/stateless-question.md",
                   },
                   {
-                    text: "Concurrency (runner)",
-                    link: "/plugins/runner.md",
+                    text: "Concorrenza (runner)",
+                    link: "/it/plugins/runner.md",
                   },
                   {
                     text: "Hydration (hydrate)",
-                    link: "/plugins/hydrate.md",
+                    link: "/it/plugins/hydrate.md",
                   },
                   {
-                    text: "Retry API requests (auto-retry)",
+                    text: " (auto-retry)",
                     link: "/plugins/auto-retry.md",
                   },
                   {
@@ -535,36 +536,36 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
           },
           {
-            text: "Examples",
+            text: "Esempi",
             children: [
               {
-                text: "Examples",
+                text: "Esempi",
                 children: [
                   {
-                    text: "Example Bots Repository",
+                    text: "Repository dei Bot di esempio",
                     link: "https://github.com/grammyjs/examples",
                   },
                   {
-                    text: "Live Browser Demo",
-                    link: "/demo/README.md",
+                    text: "Provalo nel Browser",
+                    link: "/it/demo/README.md",
                   },
-                  { text: "Example Bots", link: "/demo/examples.md" },
+                  { text: "Bot d'esempio", link: "/it/demo/examples.md" },
                   {
-                    text: "Community Showlounge",
-                    link: "/demo/showlounge.md",
+                    text: "Fatti dagli utenti",
+                    link: "/it/demo/showlounge.md",
                   },
                 ],
               },
             ],
           },
           {
-            text: "Resources",
+            text: "Risorse",
             children: [
               {
                 text: "grammY",
                 children: [
                   {
-                    text: "Community Chat",
+                    text: "Chat della comunità",
                     link: "https://t.me/grammyjs",
                   },
                   {
@@ -572,16 +573,16 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "https://github.com/grammyjs/awesome-grammY",
                   },
                   {
-                    text: "News",
+                    text: "Novità",
                     link: "https://t.me/grammyjs_news",
                   },
                   {
                     text: "FAQ",
-                    link: "/resources/faq.md",
+                    link: "/it/resources/faq.md",
                   },
                   {
-                    text: "Comparison to other frameworks",
-                    link: "/resources/comparison.md",
+                    text: "Comparazione con altri framework",
+                    link: "/it/resources/comparison.md",
                   },
                 ],
               },
@@ -589,36 +590,36 @@ export default defineUserConfig<DefaultThemeOptions>({
                 text: "Telegram",
                 children: [
                   {
-                    text: "Introduction for Developers",
+                    text: "Introduzione per Sviuppatori",
                     link: "https://core.telegram.org/bots",
                   },
                   {
-                    text: "Bots FAQ",
+                    text: "Bot FAQ",
                     link: "https://core.telegram.org/bots/faq",
                   },
                   {
-                    text: "Bot API Reference",
+                    text: "Riferimenti per la API del Bot",
                     link: "https://core.telegram.org/bots/api",
                   },
                 ],
               },
               {
-                text: "Hosting",
+                text: "Esecuzione",
                 children: [
                   {
                     text: "Heroku",
-                    link: "/hosting/heroku.md",
+                    link: "/it/hosting/heroku.md",
                   },
                   {
                     text: "Google Cloud Functions",
-                    link: "/hosting/gcf.md",
+                    link: "/it/hosting/gcf.md",
                   },
                 ],
               },
             ],
           },
           {
-            text: "API Reference",
+            text: "Riferimento API",
             link: "https://doc.deno.land/https/deno.land/x/grammy/mod.ts",
           },
         ],
