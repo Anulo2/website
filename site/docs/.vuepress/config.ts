@@ -55,11 +55,11 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/guide/introduction.md",
                   },
                   {
-                    text: "Getting started",
+                    text: "Getting Started",
                     link: "/guide/getting-started.md",
                   },
                   {
-                    text: "Sending and receiving messages",
+                    text: "Sending and Receiving Messages",
                     link: "/guide/basics.md",
                   },
                   {
@@ -71,7 +71,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/guide/api.md",
                   },
                   {
-                    text: "Filter queries and bot.on()",
+                    text: "Filter Queries and bot.on()",
                     link: "/guide/filter-queries.md",
                   },
                   {
@@ -83,7 +83,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/guide/middleware.md",
                   },
                   {
-                    text: "Error handling",
+                    text: "Error Handling",
                     link: "/guide/errors.md",
                   },
                   {
@@ -91,7 +91,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/guide/inline-queries.md",
                   },
                   {
-                    text: "File handling",
+                    text: "File Handling",
                     link: "/guide/files.md",
                   },
                   {
@@ -112,15 +112,15 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/advanced/README.md",
                   },
                   {
-                    text: "Middleware redux",
+                    text: "Middleware Redux",
                     link: "/advanced/middleware.md",
                   },
                   {
-                    text: "Scaling Up I: Large codebase",
+                    text: "Scaling Up I: Large Codebase",
                     link: "/advanced/structuring.md",
                   },
                   {
-                    text: "Scaling Up II: High load",
+                    text: "Scaling Up II: High Load",
                     link: "/advanced/scaling.md",
                   },
                   {
@@ -157,21 +157,25 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: "About Plugins",
                     link: "/plugins/README.md",
                   },
+                  {
+                    text: "How to Write a Plugin",
+                    link: "/plugins/guide.md",
+                  },
                 ],
               },
               {
                 text: "Official",
                 children: [
                   {
-                    text: "Sessions and storing data (built-in)",
+                    text: "Sessions and Storing Data (built-in)",
                     link: "/plugins/session.md",
                   },
                   {
-                    text: "Keyboards and Inline Keyboards (built-in)",
+                    text: "Inline and Custom Keyboards (built-in)",
                     link: "/plugins/keyboard.md",
                   },
                   {
-                    text: "Interactive menus (menu)",
+                    text: "Interactive Menus (menu)",
                     link: "/plugins/menu.md",
                   },
                   {
@@ -187,15 +191,15 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/plugins/hydrate.md",
                   },
                   {
-                    text: "Retry API requests (auto-retry)",
+                    text: "Retry API Requests (auto-retry)",
                     link: "/plugins/auto-retry.md",
                   },
                   {
-                    text: "Flood control (transformer-throttler)",
+                    text: "Flood Control (transformer-throttler)",
                     link: "/plugins/transformer-throttler.md",
                   },
                   {
-                    text: "Rate limit users (ratelimiter)",
+                    text: "Rate Limit Users (ratelimiter)",
                     link: "/plugins/ratelimiter.md",
                   },
                   {
@@ -215,7 +219,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/plugins/parse-mode.md",
                   },
                   {
-                    text: "Command filtering (command-fiter)",
+                    text: "Command Filtering (command-filter)",
                     link: "/plugins/command-filter.md",
                   },
                 ],
@@ -224,8 +228,12 @@ export default defineUserConfig<DefaultThemeOptions>({
                 text: "Third-party",
                 children: [
                   {
-                    text: "Console time",
+                    text: "Console Time",
                     link: "/plugins/console-time.md",
+                  },
+                  {
+                    text: "Useful Middleware",
+                    link: "/plugins/middlewares.md",
                   },
                   {
                     text: "[Submit your PR!]",
@@ -243,6 +251,10 @@ export default defineUserConfig<DefaultThemeOptions>({
                 text: "Examples",
                 children: [
                   {
+                    text: "Awesome grammY",
+                    link: "https://github.com/grammyjs/awesome-grammY",
+                  },
+                  {
                     text: "Example Bots Repository",
                     link: "https://github.com/grammyjs/examples",
                   },
@@ -251,10 +263,6 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/demo/README.md",
                   },
                   { text: "Example Bots", link: "/demo/examples.md" },
-                  {
-                    text: "Community Showlounge",
-                    link: "/demo/showlounge.md",
-                  },
                 ],
               },
             ],
@@ -266,12 +274,12 @@ export default defineUserConfig<DefaultThemeOptions>({
                 text: "grammY",
                 children: [
                   {
-                    text: "Community Chat",
+                    text: "Community Chat (English)",
                     link: "https://t.me/grammyjs",
                   },
                   {
-                    text: "Awesome grammY",
-                    link: "https://github.com/grammyjs/awesome-grammY",
+                    text: "Community Chat (Russian)",
+                    link: "https://t.me/grammyjs_ru",
                   },
                   {
                     text: "News",
@@ -282,7 +290,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/resources/faq.md",
                   },
                   {
-                    text: "Comparison to other frameworks",
+                    text: "Comparison to Other Frameworks",
                     link: "/resources/comparison.md",
                   },
                 ],
@@ -302,11 +310,20 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: "Bot API Reference",
                     link: "https://core.telegram.org/bots/api",
                   },
+                  {
+                    text: "Example Updates",
+                    link:
+                      "https://core.telegram.org/bots/webhooks#testing-your-bot-with-updates",
+                  },
                 ],
               },
               {
                 text: "Hosting",
                 children: [
+                  {
+                    text: "Deno Deploy",
+                    link: "/hosting/deno-deploy.md",
+                  },
                   {
                     text: "Heroku",
                     link: "/hosting/heroku.md",
@@ -315,13 +332,17 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: "Google Cloud Functions",
                     link: "/hosting/gcf.md",
                   },
+                  {
+                    text: "Virtual Private Server",
+                    link: "/hosting/vps.md",
+                  },
                 ],
               },
             ],
           },
           {
             text: "API Reference",
-            link: "https://doc.deno.land/https/deno.land/x/grammy/mod.ts",
+            link: "https://doc.deno.land/https://deno.land/x/grammy/mod.ts",
           },
         ],
       },
@@ -688,7 +709,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/zh/guide/errors.md",
                   },
                   {
-                    text: "内联查询",
+                    text: "Inline Queries",
                     link: "/zh/guide/inline-queries.md",
                   },
                   {
@@ -758,6 +779,10 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: "关于插件",
                     link: "/zh/plugins/README.md",
                   },
+                  {
+                    text: "如何编写一个插件",
+                    link: "/zh/plugins/guide.md",
+                  },
                 ],
               },
               {
@@ -768,7 +793,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/zh/plugins/session.md",
                   },
                   {
-                    text: "Keyboards 与 Inline Keyboards（内置）",
+                    text: "Inline 与自定义 Keyboards（内置）",
                     link: "/zh/plugins/keyboard.md",
                   },
                   {
@@ -792,11 +817,11 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/zh/plugins/auto-retry.md",
                   },
                   {
-                    text: "顶峰控制 (transformer-throttler)",
+                    text: "流量控制 (transformer-throttler)",
                     link: "/zh/plugins/transformer-throttler.md",
                   },
                   {
-                    text: "用户守卫 (ratelimiter)",
+                    text: "限制用户速率 (ratelimiter)",
                     link: "/zh/plugins/ratelimiter.md",
                   },
                   {
@@ -808,7 +833,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/zh/plugins/i18n.md",
                   },
                   {
-                    text: "路由 (router)",
+                    text: "路由器 (router)",
                     link: "/zh/plugins/router.md",
                   },
                   {
@@ -825,13 +850,16 @@ export default defineUserConfig<DefaultThemeOptions>({
                 text: "第三方",
                 children: [
                   {
-                    text: "Console time",
+                    text: "调试时输出日志",
                     link: "/zh/plugins/console-time.md",
                   },
                   {
+                    text: "有用的中间件",
+                    link: "/zh/plugins/middlewares.md",
+                  },
+                  {
                     text: "[等待你的 PR!]",
-                    link:
-                      "/zh/plugins/README.md#%E5%90%91%E6%96%87%E6%A1%A3%E6%8F%90%E4%BA%A4%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E6%8F%92%E4%BB%B6",
+                    link: "/zh/plugins/README.md#向文档提交你自己的插件",
                   },
                 ],
               },
@@ -844,6 +872,10 @@ export default defineUserConfig<DefaultThemeOptions>({
                 text: "示例",
                 children: [
                   {
+                    text: "Awesome grammY",
+                    link: "https://github.com/grammyjs/awesome-grammY",
+                  },
+                  {
                     text: "示例 Bots 仓库",
                     link: "https://github.com/grammyjs/examples",
                   },
@@ -854,10 +886,6 @@ export default defineUserConfig<DefaultThemeOptions>({
                   {
                     text: "示例 Bots",
                     link: "/zh/demo/examples.md",
-                  },
-                  {
-                    text: "社区示例",
-                    link: "/zh/demo/showlounge.md",
                   },
                 ],
               },
@@ -870,12 +898,12 @@ export default defineUserConfig<DefaultThemeOptions>({
                 text: "grammY",
                 children: [
                   {
-                    text: "社区聊天",
+                    text: "社区聊天（英语）",
                     link: "https://t.me/grammyjs",
                   },
                   {
-                    text: "Awesome grammY",
-                    link: "https://github.com/grammyjs/awesome-grammY",
+                    text: "社区聊天（俄语）",
+                    link: "https://t.me/grammyjs_ru",
                   },
                   {
                     text: "咨询",
@@ -906,11 +934,20 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: "Bot API 概览",
                     link: "https://core.telegram.org/bots/api",
                   },
+                  {
+                    text: "Updates 示例",
+                    link:
+                      "https://core.telegram.org/bots/webhooks#testing-your-bot-with-updates",
+                  },
                 ],
               },
               {
                 text: "托管服务",
                 children: [
+                  {
+                    text: "Deno Deploy",
+                    link: "/zh/hosting/deno-deploy.md",
+                  },
                   {
                     text: "Heroku",
                     link: "/zh/hosting/heroku.md",
@@ -919,13 +956,17 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: "Google Cloud Functions",
                     link: "/zh/hosting/gcf.md",
                   },
+                  {
+                    text: "Virtual Private Server",
+                    link: "/zh/hosting/vps.md",
+                  },
                 ],
               },
             ],
           },
           {
             text: "API 参考",
-            link: "https://doc.deno.land/https/deno.land/x/grammy/mod.ts",
+            link: "https://doc.deno.land/https://deno.land/x/grammy/mod.ts",
           },
         ],
       },
@@ -972,10 +1013,10 @@ export default defineUserConfig<DefaultThemeOptions>({
   ],
 });
 
-// Adapted from original `code_inline` implementation of markdown-it
+// Adapted from original `code_inline` implementation of markdown-it.
 const HTML_ESCAPE_TEST_RE = /&|<(?!wbr>)|(?<!<wbr)>/;
 const HTML_ESCAPE_REPLACE_RE = /&|<(?!wbr>)|(?<!<wbr)>/g;
-const HTML_REPLACEMENTS = {
+const HTML_REPLACEMENTS: Record<string, string> = {
   "&": "&amp;",
   "<": "&lt;",
   ">": "&gt;",

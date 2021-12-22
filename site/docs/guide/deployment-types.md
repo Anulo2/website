@@ -141,21 +141,21 @@ Under load, you are in complete control of how many messages you can process.
 
 Places where long polling works well include:
 
-- during development on your local machine,
-- on all VPS', and
-- on hosted “backend” instances, i.e. machines that actively run your bot 24/7.
+- During development on your local machine.
+- On majority of servers.
+- On hosted "backend" instances, i.e. machines that actively run your bot 24/7.
 
 **The main advantage of webhooks over long polling is that they are cheaper.**
 You save a ton of superfluous requests.
 You don't need to keep a network connection open at all times.
 You can use services that automatically scale your infrastructure down to zero when no requests are coming.
-If you want to, you can even [make an API call when responding to the Telegram request](#webhook-reply), even though this has [a number of drawbacks](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#ApiClientOptions).
+If you want to, you can even [make an API call when responding to the Telegram request](#webhook-reply), even though this has [a number of drawbacks](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/ApiClientOptions#canUseWebhookReply).
 
 Places where webhooks work well include:
 
-- on VPS' with SSL certificate,
-- on hosted “frontend” instances that scale according to their load, and
-- on serverless platforms, such as cloud functions or programmable edge networks.
+- On servers with SSL certificates.
+- On hosted "frontend" instances that scale according to their load.
+- On serverless platforms, such as cloud functions or programmable edge networks.
 
 ## I Still Have No Idea What to Use
 
@@ -190,7 +190,7 @@ Every grammY bot can be converted to middleware for a number of web frameworks, 
 You can import the `webhookCallback` function from grammY to convert your bot to middleware for the respective framework.
 
 <CodeGroup>
- <CodeGroupItem title="TS">
+ <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import express from "express";
@@ -198,12 +198,12 @@ import express from "express";
 const app = express(); // or whatever you're using
 app.use(express.json()); // parse the JSON request body
 
-// 'express' is also used as default if no argument is given
+// 'express' is also used as default if no argument is given.
 app.use(webhookCallback(bot, "express"));
 ```
 
 </CodeGroupItem>
- <CodeGroupItem title="JS">
+ <CodeGroupItem title="JavaScript">
 
 ```js
 const express = require("express");
@@ -211,7 +211,7 @@ const express = require("express");
 const app = express(); // or whatever you're using
 app.use(express.json()); // parse the JSON request body
 
-// 'express' is also used as default if no argument is given
+// 'express' is also used as default if no argument is given.
 app.use(webhookCallback(bot, "express"));
 ```
 
@@ -223,7 +223,7 @@ import { Application } from "https://deno.land/x/oak/mod.ts";
 
 const app = new Application(); // or whatever you're using
 
-// make sure to specify the framework you use
+// Make sure to specify the framework you use.
 app.use(webhookCallback(bot, "oak"));
 ```
 
@@ -246,13 +246,13 @@ As a benefit, this saves your bot from making up to one HTTP request per update.
 4. Note also that the types in grammY do not reflect the consequences of a performed webhook callback!
    For instance, they indicate that you always receive a response object, so it is your own responsibility to make sure you're not screwing up while using this minor performance optimization.
 
-If you want to use webhook replies, you can specify the `canUseWebhookReply` option in the `client` option of your `BotConfig` ([API reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#BotConfig)).
+If you want to use webhook replies, you can specify the `canUseWebhookReply` option in the `client` option of your `BotConfig` ([API reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/BotConfig)).
 Pass a function that determines whether or not to use webhook reply for the given request, identified by method.
 
 ```ts
 const bot = new Bot(token, {
   client: {
-    // We accept the drawback of webhook replies for typing status
+    // We accept the drawback of webhook replies for typing status.
     canUseWebhookReply: (method) => method === "sendChatAction",
   },
 });

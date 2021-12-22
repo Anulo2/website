@@ -1,6 +1,6 @@
 # Rate Limit Users (`ratelimiter`)
 
-rateLimiter is a rate-limiting middleware for Telegram bots made with GrammY or [Telegraf](https://github.com/telegraf/telegraf) bot frameworks. In simple terms, it is a plugin that helps you deflect heavy spamming in your bots. To understand rateLimiter better, you can take a look at the following illustration:
+rateLimiter is a rate-limiting middleware for Telegram bots made with grammY or [Telegraf](https://github.com/telegraf/telegraf) bot frameworks. In simple terms, it is a plugin that helps you deflect heavy spamming in your bots. To understand rateLimiter better, you can take a look at the following illustration:
 
 ![rateLimiter's role in deflecting spam](/rateLimiter-role.png)
 
@@ -8,10 +8,8 @@ rateLimiter is a rate-limiting middleware for Telegram bots made with GrammY or 
 
 Under normal circumstances every request will be processed and answered by your bot which means spamming it will not be that difficult. Each user might send multiple requests per second and your script has to process each request, but how can you stop it? with rateLimiter!
 
-::: warning rate-limiting users, not Telegram servers!
-
+::: warning Rate-Limiting Users, Not Telegram Servers!
 You should note that this package **DOES NOT** rate limit the incoming requests from telegram servers, instead, it tracks the incoming requests by `from.id` and dismisses them on arrival so no further processing load is added to your servers.
-
 :::
 
 ## Customizability
@@ -73,23 +71,25 @@ const bot = new Bot("YOUR BOT TOKEN HERE");
 const redis = new Redis();
 
 app.use(express.json());
-bot.use(limit({
-  timeFrame: 2000,
+bot.use(
+  limit({
+    timeFrame: 2000,
 
-  limit: 3,
+    limit: 3,
 
-  // "MEMORY_STORAGE" is the default mode. Therefore if you want to use Redis, do not pass storageClient at all.
-  storageClient: redis,
+    // "MEMORY_STORAGE" is the default mode. Therefore if you want to use Redis, do not pass storageClient at all.
+    storageClient: redis,
 
-  onLimitExceeded: (ctx) => {
-    ctx?.reply("Please refrain from sending too many requests!");
-  },
+    onLimitExceeded: (ctx) => {
+      ctx?.reply("Please refrain from sending too many requests!");
+    },
 
-  // Note that the key should be a number in string format such as "123456789"
-  keyGenerator: (ctx) => {
-    return ctx.from?.id.toString();
-  },
-}));
+    // Note that the key should be a number in string format such as "123456789".
+    keyGenerator: (ctx) => {
+      return ctx.from?.id.toString();
+    },
+  }),
+);
 
 app.listen(3000, () => {
   bot.api.setWebhook("YOUR DOMAIN HERRE", { drop_pending_updates: true });
@@ -112,14 +112,16 @@ const app = express();
 const bot = new Bot("YOUR BOT TOKEN HERE");
 
 app.use(express.json());
-bot.use(limit({
-  keyGenerator: (ctx) => {
-    if (ctx.chat?.type === "group" || ctx.chat?.type === "supergroup") {
-      // Note that the key should be a number in string format such as "123456789"
-      return ctx.chat.id.toString();
-    }
-  },
-}));
+bot.use(
+  limit({
+    keyGenerator: (ctx) => {
+      if (ctx.chat?.type === "group" || ctx.chat?.type === "supergroup") {
+        // Note that the key should be a number in string format such as "123456789".
+        return ctx.chat.id.toString();
+      }
+    },
+  }),
+);
 
 app.listen(3000, () => {
   bot.api.setWebhook("YOUR DOMAIN HERRE", { drop_pending_updates: true });
@@ -133,4 +135,4 @@ In this example, I have used `chat.id` as the unique key for rate-limiting.
 
 - Name: `ratelimiter`
 - Source: <https://github.com/grammyjs/rateLimiter>
-- Reference: <https://doc.deno.land/https/deno.land/x/grammy_ratelimiter/rateLimiter.ts>
+- Reference: <https://doc.deno.land/https://deno.land/x/grammy_ratelimiter/rateLimiter.ts>

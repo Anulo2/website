@@ -11,18 +11,18 @@ We also assume that you have a Heroku account already.
 First, install some dependencies:
 
 ```bash
-# Create a project directory
+# Create a project directory.
 mkdir grammy-bot
 cd grammy-bot
 npm init --y
 
-# Install main dependencies
+# Install main dependencies.
 npm install grammy express
 
-# Install development dependencies
+# Install development dependencies.
 npm install -D typescript @types/express @types/node
 
-# Create config for TypeScript
+# Create TypeScript config.
 npx tsc --init
 ```
 
@@ -180,7 +180,7 @@ As usual, this is optional.
 
 ::: tip ⚡ Optimization (optional)
 Every time your server starts up, grammY will request [information about the bot](https://core.telegram.org/bots/api#getme) from Telegram in order to provide it on the [context object](/guide/context.md) under `ctx.me`.
-We can set the [bot information](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#BotConfig) to prevent excessive `getMe` calls.
+We can set the [bot information](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/BotConfig#botInfo) to prevent excessive `getMe` calls.
 
 1. Open this link `https://api.telegram.org/bot<bot_token>/getMe` in your favorite web browser. [Firefox](https://www.mozilla.org/en-US/firefox/) is recommended since it displays `json` format nicely.
 2. Change our code at line 4 above and fill the value according to the results from `getMe`:
@@ -205,7 +205,7 @@ Straight to [Deployment Section](#deployment) everyone! :muscle:
 
 ## Long Polling
 
-::: warning Your script will run continuously when using long polling.
+::: warning Your Script Will Run Continuously When Using Long Polling
 Unless you know how to handle this behavior, make sure you have enough [dyno hours](https://devcenter.heroku.com/articles/free-dyno-hours).
 :::
 

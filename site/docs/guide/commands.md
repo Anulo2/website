@@ -15,12 +15,12 @@ grammY provides special handling for commands (e.g. `/start` and `/help`).
 You can directly register listeners for certain commands via `bot.command()`.
 
 ```ts
-// React to /start commands
-bot.command("start" /* ... */);
-// React to /help commands
-bot.command("help" /* ... */);
-// React to /a, /b, /c, and /d commands
-bot.command(["a", "b", "c", "d"] /* ... */);
+// Respond to the command /start.
+bot.command("start" /* , ... */);
+// Respond to the command /help.
+bot.command("help" /* , ... */);
+// Respond to the commands /a, /b, /c, and /d.
+bot.command(["a", "b", "c", "d"] /* , ... */);
 ```
 
 Note that only those commands that are in the beginning of a message are handled, so if a user sends `'Please do not send /start to that bot!'`, then your listener will not be called, even though the `/start` command _is_ contained in the message.
@@ -29,7 +29,7 @@ Telegram supports sending targeted commands to bots, i.e. commands that end with
 grammY handles this automatically for you, so `bot.command('start')` will match messages with `/start` and with `/start@your_bot_name` as commands.
 You can choose to match only targeted commands by specifying `bot.command('start@your_bot_name')`.
 
-::: tip Suggest commands to users
+::: tip Suggest Commands to Users
 You can call
 
 ```ts
@@ -52,7 +52,7 @@ You can access the argument string via `ctx.match`.
 
 ```ts
 bot.command("add", (ctx) => {
-  // `item` will be 'apple pie' if a user sends '/add apple pie'
+  // `item` will be 'apple pie' if a user sends '/add apple pie'.
   const item = ctx.match;
 });
 ```

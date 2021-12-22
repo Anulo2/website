@@ -9,9 +9,9 @@ In other words, it does not use any code of competing projects, but it will stil
 
 ## Comparison With Other JavaScript Frameworks
 
-::: tip Choose your programming language first
+::: tip Choose Your Programming Language First
 Given that you're reading the docs of a framework within the JavaScript ecosystem, you are likely looking for something to run on Node.js (or Deno).
-However, if that's not you, scroll down for a comparison of what programming languages are suited for bot development.
+However, if that's not you, [scroll down](#comparison-with-frameworks-in-other-programming-languages) for a comparison of what programming languages are suited for bot development.
 Naturally, you will also find a brief comparison against frameworks of other languages (mainly Python).
 :::
 
@@ -34,7 +34,7 @@ Telegraf v4 attempted to fix this by migrating the entire code base to TypeScrip
 Unfortunately, many of the resulting types were so complex that they were too hard to understand (but correct).
 Moreover, the migration revealed countless oddities ([example](https://github.com/telegraf/telegraf/issues/1076)) in the code base that made it painful to even find correct typings for the existing code at all.
 
-As a result, even though version 4.0 tried to _improve_ correctness and tooling support, it ended up making Telegraf substatially _harder to use_ than its untyped predecessor.
+As a result, even though version 4.0 tried to _improve_ correctness and tooling support, it ended up making Telegraf substantially _harder to use_ than its untyped predecessor.
 Understandably, many existing users of Telegraf 3 were unwilling to upgrade.
 It also got harder for new users to get started.
 
@@ -56,7 +56,7 @@ They both have a [middleware system](/guide/middleware.md) in their core.
 They also share a lot of their basic syntax:
 
 ```ts
-// works with both grammY and Telegraf
+// Works with both grammY and Telegraf.
 bot.on("message", (ctx) => ctx.reply("Hi!"));
 ```
 
@@ -169,7 +169,7 @@ People have different taste, so take this section with a grain of salt.
    The recent years show a strong trend towards asynchronous programming.
    The largest bot framework for Python, PTB, [announced its migration](https://t.me/pythontelegrambotchannel/94) to asynchronous programming in January 2021, which is expected to maybe take “2 years”.
    grammY is already there.
-   (Other, less known Python frameworks may be faster at transitioning.
+   (Other less-known Python frameworks may be faster at transitioning.
    Disregard this point if you are using a Python framework that has support for `async`/`await`.)
 
 ## How to Disagree With This Comparison

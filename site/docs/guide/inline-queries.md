@@ -8,7 +8,7 @@ next: ./files.md
 With inline queries, users can search for, browse, and send content suggested by your bot in any chat, even if it is not a member there.
 To do this, they start a message with `@your_bot_name` and choose one of the results.
 
-::: tip Enable inline mode
+::: tip Enable Inline Mode
 By default, support for inline mode is disabled. You must contact [@BotFather](https://t.me/BotFather) and enable inline mode for your bot, to start receiving inline queries.
 :::
 
@@ -17,13 +17,13 @@ By default, support for inline mode is disabled. You must contact [@BotFather](h
 > They are all worth a read before implementing inline queries for your bot.
 
 Once a user triggers an inline query, i.e. starts a message by typing “@your_bot_name ...” in the text input field, your bot will receive updates about this.
-grammY has special support for handling inline queries via the `bot.inlineQuery()` method, as documented on the `Composer` class in the [grammY API Reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#Composer).
+grammY has special support for handling inline queries via the `bot.inlineQuery()` method, as documented on the `Composer` class in the [grammY API Reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/Composer#inlineQuery).
 It allows you to listen for specific inline queries that match strings or regular expressions.
 If you want to handle all inline queries generically, use `bot.on('inline_query')`.
 
 ```ts
-// Shameless self-advertising in a project's documentation
-// is the best kind of advertising
+// Shameless self-advertising in one project's documentation
+// is the best kind of advertising.
 bot.inlineQuery(/best bot (framework|library)/, async (ctx) => {
   await ctx.answerInlineQuery(
     [
@@ -49,7 +49,7 @@ They even have a pretty website! 👇",
   );
 });
 
-// Return empty result list for other queries
+// Return empty result list for other queries.
 bot.on("inline_query", (ctx) => ctx.answerInlineQuery([]));
 ```
 

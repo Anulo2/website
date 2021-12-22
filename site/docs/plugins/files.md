@@ -1,4 +1,4 @@
-# File Handling Simplified in grammY
+# File Handling Simplified in grammY (`files`)
 
 This plugin allows you to easily download files from Telegram servers, and to obtain a URL so you can download the file yourself.
 
@@ -9,7 +9,7 @@ This plugin then installs the `download` method on `getFile` call results.
 Example:
 
 <CodeGroup>
-  <CodeGroupItem title="TS" active>
+  <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import { Bot, Context } from "grammy";
@@ -18,43 +18,43 @@ import { FileFlavor, hydrateFiles } from "@grammyjs/files";
 // Transformative Context flavor
 type MyContext = FileFlavor<Context>;
 
-// Create bot
+// Create a bot.
 const bot = new Bot<MyContext>("");
 
-// Install plugin
+// Use the plugin.
 bot.api.config.use(hydrateFiles(bot.token));
 
-// Download videos and GIFs to temporary files
+// Download videos and GIFs to temporary locations.
 bot.on([":video", ":animation"], async (ctx) => {
-  // Prepare file for download
+  // Prepare the file for download.
   const file = await ctx.getFile();
-  // Download file to temporary location on your disk
+  // Download the file to a temporary location.
   const path = await file.download();
-  // Print file path
+  // Print the file path.
   console.log("File saved at", path);
 });
 ```
 
 </CodeGroupItem>
- <CodeGroupItem title="JS">
+ <CodeGroupItem title="JavaScript">
 
 ```js
 import { Bot } from "grammy";
 import { hydrateFiles } from "@grammyjs/files";
 
-// Create bot
+// Create a bot.
 const bot = new Bot("");
 
-// Install plugin
+// Use the plugin.
 bot.api.config.use(hydrateFiles(bot.token));
 
-// Download videos and GIFs to temporary files
+// Download videos and GIFs to temporary locations.
 bot.on([":video", ":animation"], async (ctx) => {
-  // Prepare file for download
+  // Prepare the file for download.
   const file = await ctx.getFile();
-  // Download file to temporary location on your disk
+  // Download the file to a temporary location.
   const path = await file.download();
-  // Print file path
+  // Print the file path.
   console.log("File saved at", path);
 });
 ```
@@ -72,19 +72,19 @@ import {
 // Transformative Context flavor
 type MyContext = FileFlavor<Context>;
 
-// Create bot
+// Create a bot.
 const bot = new Bot<MyContext>("");
 
-// Install plugin
+// Use the plugin.
 bot.api.config.use(hydrateFiles(bot.token));
 
-// Download videos and GIFs to temporary files
+// Download videos and GIFs to temporary locations.
 bot.on([":video", ":animation"], async (ctx) => {
-  // Prepare file for download
+  // Prepare the file for download.
   const file = await ctx.getFile();
-  // Download file to temporary location on your disk
+  // Download the file to a temporary location.
   const path = await file.download();
-  // Print file path
+  // Print the file path.
   console.log("File saved at", path);
 });
 ```
@@ -112,7 +112,7 @@ However, this is not reflected in the types.
 If you need these calls, you should also install an [API flavor](/advanced/transformers.html#api-flavoring) on the bot object called `FileApiFlavor`:
 
 <CodeGroup>
-  <CodeGroupItem title="Node" active>
+  <CodeGroupItem title="Node.js" active>
 
 ```ts
 import { Api, Bot, Context } from "grammy";
@@ -122,7 +122,7 @@ type MyContext = FileFlavor<Context>;
 type MyApi = FileApiFlavor<Api>;
 
 const bot = new Bot<MyContext, MyApi>("");
-// etc
+// ...
 ```
 
 </CodeGroupItem>
@@ -140,7 +140,7 @@ type MyContext = FileFlavor<Context>;
 type MyApi = FileApiFlavor<Api>;
 
 const bot = new Bot<MyContext, MyApi>("");
-// etc
+// ...
 ```
 
 </CodeGroupItem>
@@ -150,4 +150,4 @@ const bot = new Bot<MyContext, MyApi>("");
 
 - Name: `files`
 - Source: <https://github.com/grammyjs/files>
-- Reference: <https://doc.deno.land/https/deno.land/x/grammy_files/mod.ts>
+- Reference: <https://doc.deno.land/https://deno.land/x/grammy_files/mod.ts>

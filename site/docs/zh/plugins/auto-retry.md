@@ -1,4 +1,4 @@
-# 重试 API 请求 (`auto-retry`)
+# 重试 API 请求（`auto-retry`）
 
 > 请考虑使用 [流量控制插件](./transformer-throttler.md) 替代。
 
@@ -16,22 +16,22 @@ Telegram 不像别的服务那样直接限制你的请求，它会告诉你，�
 你可以在 `bot.api` 对象上安装这个插件：
 
 <CodeGroup>
-  <CodeGroupItem title="TS" active>
+  <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import { autoRetry } from "@grammyjs/auto-retry";
 
-// 安装插件
+// 使用插件。
 bot.api.config.use(autoRetry());
 ```
 
 </CodeGroupItem>
- <CodeGroupItem title="JS">
+ <CodeGroupItem title="JavaScript">
 
 ```js
 const { autoRetry } = require("@grammyjs/auto-retry");
 
-// 安装插件
+// 使用插件。
 bot.api.config.use(autoRetry());
 ```
 
@@ -61,12 +61,15 @@ bot.api.config.use(autoRetry());
 ```ts
 autoRetry({
   maxRetryAttempts: 1, // 只重复请求一次
-  maxDelaySeconds: 5, // 如果我们必须等待 6 秒以上，则立即失败
+  maxDelaySeconds: 5, // 如果我们必须等待大于 5 秒以上，则立即失败
 });
 ```
+
+你可以使用 `retryOnInternalServerErrors` 将 Telegram 的所有其他内部服务器错误（状态码 >= 500）纳入上述程序。
+这些错误将会被立即重试，但是它们也会遵循 `maxRetryAttempts` 选项。
 
 ## 插件概述
 
 - 名字：`auto-retry`
 - 源码：<https://github.com/grammyjs/auto-retry>
-- 参考：<https://doc.deno.land/https/raw.githubusercontent.com%2Fgrammyjs%2Fauto-retry%2Fmain%2Fsrc%2Findex.ts>
+- 参考：<https://doc.deno.land/https://raw.githubusercontent.com%2Fgrammyjs%2Fauto-retry%2Fmain%2Fsrc%2Findex.ts>

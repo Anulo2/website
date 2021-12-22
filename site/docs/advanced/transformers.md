@@ -14,7 +14,7 @@ A _transformer function_ is a function that handles outgoing data, i.e.
 - a payload object that matches the method.
 
 Instead of having `next` as the last argument to invoke downstream middleware, you receive `prev` as the first argument to utilize upstream transformer functions.
-Looking at the type signature of `Transformer` ([grammY API Reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#Transformer)), we can see how it reflects that.
+Looking at the type signature of `Transformer` ([grammY API Reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/Transformer)), we can see how it reflects that.
 Note that `Payload<M, R>` refers to the payload object that has to match the given method, and that `ApiResponse<ApiCallResult<M, R>>` is the return type of the invoked method.
 
 The last invoked transformer function is a built-in caller that does things like JSON serialization of certain fields, and eventually calling `fetch`.
@@ -37,7 +37,7 @@ bot.use((ctx, next) => next());
 Here is an example of a transformer function that prevents all API calls from happening:
 
 ```ts
-// Incorrectly return undefined instead of the respective object types
+// Incorrectly return undefined instead of the respective object types.
 bot.api.config.use((prev, method, payload) => undefined as any);
 ```
 
@@ -49,7 +49,7 @@ As soon as the respective middleware completes, the transformer function is disc
 
 ```ts
 bot.on("message", (ctx) => {
-  // Install on all context objects that process messages
+  // Install on all context objects that process messages.
   ctx.api.config.use((prev, method, payload) => prev(method, payload));
 });
 ```
@@ -91,16 +91,16 @@ type MyContext = Context & SomeContextFlavor;
 // API flavoring
 type MyApi = Api & SomeApiFlavor;
 
-// Use both flavors
+// Use both flavors.
 const bot = new Bot<MyContext, MyApi>("my-token");
 
-// Install plugin
+// Use a plugin.
 bot.api.config.use(somePlugin());
 
-// Now call `bot.api` with adjusted types from API flavor
+// Now call `bot.api` with adjusted types from API flavor.
 bot.api.somePluginMethod();
 
-// Also use adjusted context type from context flavor
+// Also, use adjusted context type from context flavor.
 bot.on("message", (ctx) => ctx.api.somePluginMethod());
 ```
 

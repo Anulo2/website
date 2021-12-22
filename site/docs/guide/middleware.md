@@ -43,19 +43,19 @@ The update is **not** checked for a photo content, because the middleware at `(*
 Now, how does this work?
 Let's find out.
 
-We can inspect the `Middleware` type in grammY's reference [here](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#Middleware):
+We can inspect the `Middleware` type in grammY's reference [here](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/Middleware):
 
 ```ts
-// omitted some type paramters for brevity
+// Omitted some type paramters for brevity.
 type Middleware = MiddlewareFn | MiddlewareObj;
 ```
 
 Aha.
 Middleware can be a function or an object.
-We only used functions (`(ctx) => { ... }`) so far, so let's ignore middleware objects for now, and dig deeper into the `MiddlewareFn` type ([reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#MiddlewareFn)):
+We only used functions (`(ctx) => { ... }`) so far, so let's ignore middleware objects for now, and dig deeper into the `MiddlewareFn` type ([reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/MiddlewareFn)):
 
 ```ts
-// omitted type parameters again
+// Omitted type parameters again.
 type MiddlewareFn = (ctx: Context, next: NextFunction) => MaybePromise<unknown>;
 // with
 type NextFunction = () => Promise<void>;
@@ -131,7 +131,7 @@ async function responseTime(
   ctx: Context,
   next: NextFunction, // is an alias for: () => Promise<void>
 ): Promise<void> {
-  // TODO implement
+  // TODO: implement
 }
 ```
 
@@ -175,7 +175,7 @@ Complete, and works! :heavy_check_mark:
 Feel free to use this middleware on your bot object, register more listeners, and play around with the example.
 Doing so will help you to fully understand what middleware is.
 
-::: danger DANGER: Always make sure to await next!
+::: danger DANGER: Always Make Sure to await next!
 If you ever call `next()` without the `await` keyword, several things will break:
 
 - :x: Your middleware stack will be executed in the wrong order.
@@ -206,7 +206,7 @@ Another difference is that it does not matter how many arguments your middleware
 
 There are two types of middleware: functions and objects.
 Middleware objects are simply a wrapper for middleware functions.
-They are mostly used internally, but can sometimes also help third-party libraries, or be used in advanced use cases, such as with [Composer](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#Composer):
+They are mostly used internally, but can sometimes also help third-party libraries, or be used in advanced use cases, such as with [Composer](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/Composer):
 
 ```ts
 const bot = new Bot("<token>");

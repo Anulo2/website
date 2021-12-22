@@ -1,17 +1,17 @@
-# Parse Mode Plugin
+# Parse Mode Plugin (`parse-mode`)
 
 This plugin provides a transformer for setting default `parse_mode`, and a middleware for hydrating `Context` with familiar `reply` variant methods - i.e. `replyWithHTML`, `replyWithMarkdown`, etc.
 
 ## Usage
 
 <CodeGroup>
-  <CodeGroupItem title="TS" active>
+  <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import { Bot, Composer } from "grammy";
-import { hydrateReply, parseMode } from "parse-mode";
+import { hydrateReply, parseMode } from "@grammyjs/parse-mode";
 
-import type { ParseModeContext } from "parse-mode";
+import type { ParseModeContext } from "@grammyjs/parse-mode";
 
 const bot = new Bot<ParseModeContext>("");
 
@@ -35,18 +35,18 @@ bot.start();
 ```
 
 </CodeGroupItem>
- <CodeGroupItem title="JS">
+ <CodeGroupItem title="JavaScript">
 
 ```js
-import { Bot, Composer } from "grammy";
-import { hydrateReply, parseMode } from "parse-mode";
+const { Bot, Composer } = require("grammy");
+const { hydrateReply, parseMode } = require("@grammyjs/parse-mode");
 
 const bot = new Bot("");
 
-// Install familiar reply variants to ctx
+// Use the plugin.
 bot.use(hydrateReply);
 
-// Sets default parse_mode for ctx.reply
+// Set the default `parse_mode` of `ctx.reply`.
 bot.api.config.use(parseMode("MarkdownV2"));
 
 bot.command("demo", async (ctx) => {
@@ -76,10 +76,10 @@ import type { ParseModeContext } from "https://deno.land/x/grammy_parse_mode/mod
 
 const bot = new Bot<ParseModeContext>("");
 
-// Install familiar reply variants to ctx
+// Use the plugin.
 bot.use(hydrateReply);
 
-// Sets default parse_mode for ctx.reply
+// Set the default `parse_mode` of `ctx.reply`.
 bot.api.config.use(parseMode("MarkdownV2"));
 
 bot.command("demo", async (ctx) => {
@@ -102,4 +102,4 @@ bot.start();
 
 - Name: `parse-mode`
 - Source: <https://github.com/grammyjs/parse-mode>
-- Reference: <https://doc.deno.land/https/deno.land/x/grammy_parse_mode/mod.ts>
+- Reference: <https://doc.deno.land/https://deno.land/x/grammy_parse_mode/mod.ts>

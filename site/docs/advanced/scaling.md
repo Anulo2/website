@@ -22,7 +22,7 @@ However, if your bot processes one message per second (or something like that) d
 For instance, the message of Bob has to wait until the message of Alice is done processing.
 
 This can be solved by not waiting for Alice's message to be done processing, i.e. processing both messages concurrently.
-In order to achieve maximal responsiveness, we'd also like to pull in new messages while the messages of Bob and Alice are still processing.
+In order to achieve maximum responsiveness, we'd also like to pull in new messages while the messages of Bob and Alice are still processing.
 Ideally, we would also like to limit the concurrency to some fixed number to constrain the maximum server load.
 
 Concurrent processing is not shipped with the grammY core package.
@@ -33,7 +33,7 @@ It supports all of the above out of the box, and it is extremely simple to use.
 // Previously
 bot.start();
 
-// With grammY runner (which exports `run`)
+// With grammY runner, which exports `run`.
 run(bot);
 ```
 
@@ -82,16 +82,16 @@ You can configure it with the very same function that you use to determine the s
 It will then avoid the above race condition by slowing down those (and only those) updates that would cause a collision.
 
 <CodeGroup>
-  <CodeGroupItem title="TS" active>
+  <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import { Bot, Context, session } from "grammy";
 import { run, sequentialize } from "@grammyjs/runner";
 
-// Create bot
+// Create a bot.
 const bot = new Bot("<token>");
 
-/** Resolves the session key for a context object */
+// Build a unique identifier for the `Context` object.
 function getSessionKey(ctx: Context) {
   return ctx.chat?.id.toString();
 }
@@ -100,7 +100,7 @@ function getSessionKey(ctx: Context) {
 bot.use(sequentialize(getSessionKey));
 bot.use(session({ getSessionKey }));
 
-// Add the usual middleware, now with safe session support
+// Add the usual middleware, now with safe session support.
 bot.on("message", (ctx) => ctx.reply("Got your message."));
 
 // Still run it concurrently!
@@ -109,16 +109,16 @@ run(bot);
 
 </CodeGroupItem>
 
-<CodeGroupItem title="JS">
+<CodeGroupItem title="JavaScript">
 
 ```ts
 const { Bot, Context, session } = require("grammy";)
 const { run, sequentialize } = require("@grammyjs/runner";)
 
-// Create bot
+// Create a bot.
 const bot = new Bot("<token>");
 
-/** Resolves the session key for a context object */
+// Build a unique identifier for the `Context` object.
 function getSessionKey(ctx) {
   return ctx.chat?.id.toString();
 }
@@ -127,7 +127,7 @@ function getSessionKey(ctx) {
 bot.use(sequentialize(getSessionKey));
 bot.use(session({ getSessionKey }));
 
-// Add the usual middleware, now with safe session support
+// Add the usual middleware, now with safe session support.
 bot.on("message", (ctx) => ctx.reply("Got your message."));
 
 // Still run it concurrently!
@@ -141,10 +141,10 @@ run(bot);
 import { Bot, Context, session } from "https://deno.land/x/grammy/mod.ts";
 import { run, sequentialize } from "https://deno.land/x/grammy_runner/mod.ts";
 
-// Create bot
+// Create a bot.
 const bot = new Bot("<token>");
 
-/** Resolves the session key for a context object */
+// Build a unique identifier for the `Context` object.
 function getSessionKey(ctx: Context) {
   return ctx.chat?.id.toString();
 }
@@ -153,7 +153,7 @@ function getSessionKey(ctx: Context) {
 bot.use(sequentialize(getSessionKey));
 bot.use(session({ getSessionKey }));
 
-// Add the usual middleware, now with safe session support
+// Add the usual middleware, now with safe session support.
 bot.on("message", (ctx) => ctx.reply("Got your message."));
 
 // Still run it concurrently!

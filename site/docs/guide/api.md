@@ -7,7 +7,7 @@ next: ./filter-queries.md
 
 ## General Information
 
-Telegram bots are communicating via HTTP requests with the Telegram servers.
+Telegram bots communicate with the Telegram servers via HTTP requests.
 The Telegram Bot API is the specification of this interface, i.e. a [long list](https://core.telegram.org/bots/api) of methods and data types, commonly called a reference.
 It defines everything that Telegram bots can do.
 You can find it linked under the Resources tab.
@@ -23,7 +23,7 @@ This server will translate the request to Telegram's native protocol called MTPr
 
 Analogously, whenever a user responds, the inverse path is taken.
 
-::: tip Circumventing file size limits
+::: tip Circumventing File Size Limits
 The Telegram backend allows your bot to [send files](./files.md) up to 2000 MB.
 However, the Bot API server that is responsible for translating the requests to HTTP restricts the file size to 50 MB for downloads and 20 MB for uploads.
 
@@ -36,7 +36,7 @@ Hence, if you circumvent the Bot API server that Telegram runs for you, and simp
 ## Calling the Bot API
 
 Every single method of the Bot API has an equivalent in grammY.
-Example: `sendMessage` in the [Telegram Bot API Reference](https://core.telegram.org/bots/api#sendmessage) and in the [grammY API Reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#Api).
+Example: `sendMessage` in the [Telegram Bot API Reference](https://core.telegram.org/bots/api#sendmessage) and in the [grammY API Reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/Api#sendMessage).
 
 ### Calling a Method
 
@@ -44,10 +44,10 @@ You can call API methods via `bot.api`, or [equivalently](./context.md#available
 
 ```ts
 async function sendHelloTo12345() {
-  // Send a message to 12345
+  // Send a message to 12345.
   await bot.api.sendMessage(12345, "Hello!");
 
-  // Send a message and get the sent message object back
+  // Send a message and store the response, which contains info about the sent message.
   const sentMessage = await bot.api.sendMessage(12345, "Hello again!");
   console.log(sentMessage.message_id);
 }

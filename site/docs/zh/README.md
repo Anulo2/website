@@ -25,8 +25,9 @@ permalink: /zh/
   '运行更快',
   '及时更新',
   '除了洗碗，我都能做',
-  '像做柠檬汁一样简单'
-][Math.floor(Math.random() * 6)] }}.</h6>
+  '像做柠檬汁一样简单',
+  '数以亿计的服务',
+][Math.floor(Math.random() * 7)] }}.</h6>
 
 ## 快速开始
 
@@ -35,28 +36,28 @@ bot 是用 [TypeScript](https://www.typescriptlang.org)（或JavaScript）编写
 `npm install grammy` 并粘贴以下代码：
 
 <CodeGroup>
-  <CodeGroupItem title="TS" active>
+  <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import { Bot } from "grammy";
 
 const bot = new Bot(""); // <-- 把你的 bot token 放在这里 (https://t.me/BotFather)
 
-// 用“你好”来回复所有信息
+// 用“你好！”来回复任意信息
 bot.on("message", (ctx) => ctx.reply("你好！"));
 
 bot.start();
 ```
 
 </CodeGroupItem>
- <CodeGroupItem title="JS">
+ <CodeGroupItem title="JavaScript">
 
 ```ts
 const { Bot } = require("grammy");
 
 const bot = new Bot(""); // <-- 把你的 bot token 放在这里 (https://t.me/BotFather)
 
-// 用“你好”来回复所有信息
+// 用“你好！”来回复任意信息
 bot.on("message", (ctx) => ctx.reply("你好！"));
 
 bot.start();
@@ -70,8 +71,8 @@ import { Bot } from "https://deno.land/x/grammy/mod.ts";
 
 const bot = new Bot(""); // <-- 把你的 bot token 放在这里 (https://t.me/BotFather)
 
-// 用“你好”来回复所有信息
-bot.on("message", (ctx) => ctx.reply("你好!"));
+// 用“你好！”来回复任意信息
+bot.on("message", (ctx) => ctx.reply("你好！"));
 
 bot.start();
 ```
@@ -83,5 +84,5 @@ bot.start();
 
 ---
 
-grammY 支持 Telegram Bot API 5.4，该 API 于 2021 年 11 月 5 日 [发布](https://core.telegram.org/bots/api#november-5-2021)。
-(新增: 加入请求)
+grammY 支持 Telegram Bot API 5.5，该 API 于 2021 年 12 月 7 日 [发布](https://core.telegram.org/bots/api#december-7-2021)。
+(新增: 响应加入请求)

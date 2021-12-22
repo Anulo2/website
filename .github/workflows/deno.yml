@@ -12,7 +12,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    types: ["opened", "edited", "synchronize"]
 
 jobs:
   build:
@@ -29,7 +29,23 @@ jobs:
         run: npm run docs:build
         working-directory: site/
 
-  format-and-lint:
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: "./site/docs/.vuepress/dist"
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: ${{ github.event.pull_request.title }}
+          enable-pull-request-comment: true
+          enable-commit-comment: false
+          overwrites-pull-request-comment: true
+          fails-without-credentials: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
+
+  format:
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo
@@ -40,7 +56,5 @@ jobs:
           deno-version: v1.x
 
       - name: Check Format
-        run: deno fmt --config deno.json --check
-
-      - name: Lint
-        run: deno lint --config deno.json
+        run: npm run docs:fmt -- --check
+        working-directory: site/

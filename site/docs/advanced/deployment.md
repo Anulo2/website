@@ -29,20 +29,18 @@ This depends on your deployment type.
 
 1. [Use grammY runner.](/plugins/runner.md)
 2. [Use `sequentialize` with the same session key resolver function as your session middleware.](./scaling.md#concurrency-is-hard)
-3. Go through the configuration options of `run` ([API reference](https://doc.deno.land/https/deno.land/x/grammy_runner/mod.ts#run)) and make sure they fit your needs, or even consider composing your own runner out of sources and sinks.
+3. Go through the configuration options of `run` ([API reference](https://doc.deno.land/https://deno.land/x/grammy_runner/mod.ts/~/run)) and make sure they fit your needs, or even consider composing your own runner out of sources and sinks.
    The main thing to consider is the maximum load you want to apply to your server, i.e. how many updates may be processed at the same time.
-4. Consider listening for `SIGINT` and `SIGTERM` events in order to stop your bot gracefully when you want to terminate it (i.e. to switch to a new version).
-   This can be done via the handle that the grammY runner gives you.
-   (If you ignored point 1. for some reason and you are using built-in long polling, call `bot.stop` instead.)
+4. Consider implementing [graceful shutdown](/advanced/reliability.html#graceful-shutdown) in order to stop your bot when you want to terminate it (i.e. to switch to a new version).
 
 ### Webhooks
 
 1. Make sure you do not perform any long-running operations in your middleware, such as large file transfers.
    [This leads to timeout errors](/guide/deployment-types.html#ending-webhook-requests-in-time) for the webhooks, and duplicate update processing as Telegram will re-send non-acknowledged updates.
    Consider using a task queuing system instead.
-2. Make yourself familiar with the configuration of `webhookCallback` [API refenece](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#webhookCallback).
+2. Make yourself familiar with the configuration of `webhookCallback` [API reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/webhookCallback).
 3. If you adjusted the `getSessionKey` option for your session, [use `sequentialize` with the same session key resolver function as your session middleware](./scaling.md#concurrency-is-hard).
-4. If you are running on a serverless or autoscaling platform, [set the bot information](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#BotConfig) to prevent excessive `getMe` calls.
+4. If you are running on a serverless or autoscaling platform, [set the bot information](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/BotConfig) to prevent excessive `getMe` calls.
 5. Consider using [webhook replies](/guide/deployment-types.html#webhook-reply).
 
 ## Sessions
@@ -56,10 +54,10 @@ Write tests for your bot.
 This can be done with grammY like so:
 
 1. Mock outgoing API requests using [transformer functions](./transformers.md).
-2. Define and send sample update objects to your bot via `bot.handleUpdate` (API reference).
+2. Define and send sample update objects to your bot via `bot.handleUpdate` ([API reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/Bot#handleUpdate)).
    Consider to take some inspiration from [these update objects](https://core.telegram.org/bots/webhooks#testing-your-bot-with-updates) provided by the Telegram team.
 
-::: tip Contribute a testing framework
+::: tip Contribute a Testing Framework
 While grammY provides the necessary hooks to start writing tests, it would be very helpful to have a testing framework for bots.
 This is novel territory, such testing frameworks largely do not exist.
 We look forward to your contributions!

@@ -11,18 +11,18 @@
 首先，安装一些依赖：
 
 ```bash
-# 创建项目目录
+# 创建项目目录。
 mkdir grammy-bot
 cd grammy-bot
 npm init --y
 
-# 安装主要依赖
+# 安装主要依赖。
 npm install grammy express
 
-# 安装开发依赖
+# 安装开发依赖。
 npm install -D typescript @types/express @types/node
 
-# 为 TypeScript 创建配置文件
+# 创建 TypeScript 配置文件。
 npx tsc --init
 ```
 
@@ -156,7 +156,7 @@ https://api.telegram.org/botabcd:1234/setWebhook?url=https%3A%2F%2Fgrammybot.her
 :::
 
 ::: tip ⚡ 优化（可选）
-使用 [Webhook 回复](/zh/guide/deployment-types.html#webhook-reply) 以提高效率。
+使用 [Webhook Reply](/zh/guide/deployment-types.html#webhook-reply) 以提高效率。
 :::
 
 ### 创建 `bot.ts`
@@ -180,7 +180,7 @@ bot.on("message", (ctx) => ctx.reply("Got another message!"));
 
 ::: tip ⚡ 优化（可选）
 每次你的服务器启动时，grammY 会向 Telegram 请求 [bot 的信息](https://core.telegram.org/bots/api#getme)，以便在 `ctx.me` 下的 [上下文对象](/zh/guide/context.md) 提供 bot 的信息。
-我们可以设置 [bot 的信息](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#BotConfig) 以防止过多的 `getMe` 调用。
+我们可以设置 [bot 的信息](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/BotConfig#botInfo) 以防止过多的 `getMe` 调用。
 
 1. 在你最喜欢的浏览器中打开这个链接 `https://api.telegram.org/bot<bot_token>/getMe`，推荐使用 [Firefox](https://www.mozilla.org/en-US/firefox/)，因为它能格式化显示 `json` 数据。
 2. 根据 `getMe` 的结果来修改我们上面第 4 行的代码：

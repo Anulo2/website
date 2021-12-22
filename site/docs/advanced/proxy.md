@@ -7,7 +7,7 @@ next: ./deployment.md
 
 grammY let's you configure a number of things about how network requests are performed.
 This includes injecting a custom payload into every request, which can be used to install a proxy agent.
-Check out the `ApiClientOptions` in the [grammY API Reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#ApiClientOptions).
+Check out the `ApiClientOptions` in the [grammY API Reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/ApiClientOptions).
 
 In Node.js, here is how you would use a proxy with the `socks5-https-client` package ([npm](https://www.npmjs.com/package/socks5-https-client)):
 
@@ -38,3 +38,4 @@ const bot = new Bot("", {
 
 Getting a proxy to work can be difficult.
 Contact us in the [Telegram chat](https://t.me/grammyjs) if you run into issues, or if you need grammY to support further configuration options.
+We also have a [Russian Telegram chat](https://t.me/grammyjs_ru).

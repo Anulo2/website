@@ -25,8 +25,9 @@ permalink: /
   'runs faster than you',
   'one update ahead',
   'can do anything except dishes',
-  'easy peasy lemon squeezY'
-][Math.floor(Math.random() * 6)] }}.</h6>
+  'easy peasy lemon squeezY',
+  'hundreds of millions served',
+][Math.floor(Math.random() * 7)] }}.</h6>
 
 ## Quickstart
 
@@ -35,28 +36,28 @@ Bots are written in [TypeScript](https://www.typescriptlang.org) (or JavaScript)
 `npm install grammy` and paste the following code:
 
 <CodeGroup>
-  <CodeGroupItem title="TS" active>
+  <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import { Bot } from "grammy";
 
 const bot = new Bot(""); // <-- put your bot token here (https://t.me/BotFather)
 
-// Reply to all messages with 'Hi there!'
+// Reply to any message with "Hi there!".
 bot.on("message", (ctx) => ctx.reply("Hi there!"));
 
 bot.start();
 ```
 
 </CodeGroupItem>
- <CodeGroupItem title="JS">
+ <CodeGroupItem title="JavaScript">
 
 ```ts
 const { Bot } = require("grammy");
 
 const bot = new Bot(""); // <-- put your bot token here (https://t.me/BotFather)
 
-// Reply to all messages with 'Hi there!'
+// Reply to any message with "Hi there!".
 bot.on("message", (ctx) => ctx.reply("Hi there!"));
 
 bot.start();
@@ -70,7 +71,7 @@ import { Bot } from "https://deno.land/x/grammy/mod.ts";
 
 const bot = new Bot(""); // <-- put your bot token here (https://t.me/BotFather)
 
-// Reply to all messages with 'Hi there!'
+// Reply to any message with "Hi there!".
 bot.on("message", (ctx) => ctx.reply("Hi there!"));
 
 bot.start();
@@ -83,5 +84,5 @@ Works! :tada:
 
 ---
 
-grammY supports the Telegram Bot API 5.4 which was [released](https://core.telegram.org/bots/api#november-5-2021) on November 5, 2021.
-(Last highlight: Join Requests)
+grammY supports the Telegram Bot API 5.5 which was [released](https://core.telegram.org/bots/api#december-7-2021) on December 7, 2021.
+(Last highlight: Responses to Join Requests)

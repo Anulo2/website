@@ -5,13 +5,13 @@ next: ./api.md
 
 # Context
 
-The `Context` object ([grammY API Reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#Context)) is an important part of grammY.
+The `Context` object ([grammY API Reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/Context)) is an important part of grammY.
 
 Whenever you register a listener on your bot object, this listener will receive a context object.
 
 ```ts
 bot.on("message", (ctx) => {
-  // `ctx` is a context object
+  // `ctx` is the `Context` object.
 });
 ```
 
@@ -29,8 +29,9 @@ As an example, to get the message text, you can do this:
 
 ```ts
 bot.on("message", (ctx) => {
-  // `txt` is a `string` for text messages,
-  // and `undefined` for photos, stickers, and other messages
+  // `txt` will be a `string` when processing text messages.
+  // It will be `undefined` if the received message does not have any message text,
+  // e.g. photos, stickers, and other messages.
   const txt = ctx.message.text;
 });
 ```
@@ -44,7 +45,7 @@ Example:
 
 ```ts
 bot.on("edited_message", (ctx) => {
-  // Get new text of edited message
+  // Get the new, edited, text of the message.
   const editedText = ctx.editedMessage.text;
 });
 ```
@@ -70,11 +71,12 @@ In other words, you can also do this:
 
 ```ts
 bot.on("message", (ctx) => {
-  // Get text of new message
+  // Get the text of the message.
   const text = ctx.msg.text;
 });
+
 bot.on("edited_message", (ctx) => {
-  // Get new text of edited message
+  // Get the new, edited, text of the message.
   const editedText = ctx.msg.text;
 });
 ```
@@ -87,11 +89,11 @@ If you want to respond to a message from a user, you could write this:
 
 ```ts
 bot.on("message", async (ctx) => {
-  // Get the chat identifier
+  // Get the chat identifier.
   const chatId = ctx.msg.chat.id;
-  // Define reply text
+  // The text to reply with
   const text = "I got your message!";
-  // Send reply
+  // Send the reply.
   await bot.api.sendMessage(chatId, text);
 });
 ```
@@ -116,7 +118,7 @@ bot.on("message", async (ctx) => {
   await ctx.reply("I got your message!");
 });
 
-// or even shorter:
+// Or, even shorter:
 bot.on("message", (ctx) => ctx.reply("Gotcha!"));
 ```
 
@@ -125,7 +127,7 @@ Neat! :tada:
 Under the hood, the context _already knows its chat identifier_ (namely `ctx.msg.chat.id`), so it gives you the `reply` method to just send a message back to the same chat.
 Internally, `reply` again calls `sendMessage` with the chat identifier pre-filled for you.
 
-::: tip Telegram reply feature
+::: tip Telegram Reply Feature
 Even though the method is called `ctx.reply` in grammY (and many other frameworks), it does not use the reply feature of Telegram where a previous message is linked.
 
 If you look up what `sendMessage` can do in the [Telegram Bot API Reference](https://core.telegram.org/bots/api#sendmessage), you will see a number of options, such as `parse_mode`, `disable_web_page_preview`, and `reply_to_message_id`.
@@ -141,7 +143,7 @@ The same options object can be passed to `bot.api.sendMessage` and `ctx.api.send
 Use auto-complete to see the available options right in your code editor.
 :::
 
-Naturally, every other method on `ctx.api` has a shortcut with the correct pre-filled values, such as `ctx.replyWithPhoto` to reply with a photo, or `ctx.exportChatInviteLink` to get an invite link for the respective chat. If you want to get an overview over what shortcuts exist, then auto-complete is your friend, along with the [grammY API Reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#Context).
+Naturally, every other method on `ctx.api` has a shortcut with the correct pre-filled values, such as `ctx.replyWithPhoto` to reply with a photo, or `ctx.exportChatInviteLink` to get an invite link for the respective chat. If you want to get an overview over what shortcuts exist, then auto-complete is your friend, along with the [grammY API Reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/Context).
 
 Note that you may not want to react in the same chat always.
 In this case, you can just fall back to using `ctx.api` methods, and specify all options when calling them.
@@ -171,21 +173,21 @@ This is possible in two ways:
 If you choose option 1., you must specify the custom context as a type parameter (skip for JavaScript):
 
 <CodeGroup>
-  <CodeGroupItem title="Node" active>
+  <CodeGroupItem title="Node.js" active>
 
 ```ts
 import { Bot, Context } from "grammy";
 
-// Define custom context type
+// Define a custom context type.
 interface MyContext extends Context {
   customProp: string | number | undefined;
 }
 
-// Pass custom context type to `Bot` constructor
+// Pass the custom context type to the `Bot` constructor.
 const bot = new Bot<MyContext>("<token>");
 
 bot.on("message", (ctx) => {
-  // `ctx` is now of type `MyContext`
+  // `ctx` is now of type `MyContext`!
   const prop = ctx.customProp;
 });
 ```
@@ -196,16 +198,16 @@ bot.on("message", (ctx) => {
 ```ts
 import { Bot, Context } from "https://deno.land/x/grammy/mod.ts";
 
-// Define custom context type
+// Define a custom context type.
 interface MyContext extends Context {
   customProp: string | number | undefined;
 }
 
-// Pass custom context type to `Bot` constructor
+// Pass the custom context type to the `Bot` constructor.
 const bot = new Bot<MyContext>("<token>");
 
 bot.on("message", (ctx) => {
-  // `ctx` is now of type `MyContext`
+  // `ctx` is now of type `MyContext`!
   const prop = ctx.customProp;
 });
 ```
@@ -222,29 +224,30 @@ If you choose option 2., this is how you set a custom context constructor that w
 Note that your class must extend `Context`.
 
 <CodeGroup>
-  <CodeGroupItem title="TS" active>
+  <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import { Bot, Context } from "grammy";
 import type { Update, UserFromGetMe } from "@grammyjs/types";
 
-// Define custom context class
+// Define a custom context class.
 class MyContext extends Context {
-  // custom properties on context
+  // Set some custom properties.
   public readonly customProp: number;
+
   constructor(update: Update, api: Api, me: UserFromGetMe) {
     super(update, api, me);
     this.customProp = me.username.length * 42;
   }
 }
 
-// Pass the constructor of the custom context class as an option
+// Pass the constructor of the custom context class as an option.
 const bot = new Bot("<token>", {
   ContextConstructor: MyContext,
 });
 
 bot.on("message", (ctx) => {
-  // `ctx` is now of type `MyContext`
+  // `ctx` is now of type `MyContext`.
   const prop = ctx.customProp;
 });
 
@@ -252,28 +255,29 @@ bot.start();
 ```
 
 </CodeGroupItem>
-  <CodeGroupItem title="JS" active>
+  <CodeGroupItem title="JavaScript" active>
 
 ```ts
 const { Bot, Context } = require("grammy");
 
-// Define custom context class
+// Define a custom context class.
 class MyContext extends Context {
-  // custom properties on context
+  // Set some custom properties.
   public readonly customProp;
+
   constructor(update, api, me) {
     super(update, api, me);
     this.customProp = me.username.length * 42;
   }
 }
 
-// Pass the constructor of the custom context class as an option
+// Pass the constructor of the custom context class as an option.
 const bot = new Bot("<token>", {
   ContextConstructor: MyContext,
 });
 
 bot.on("message", (ctx) => {
-  // `ctx` is now of type `MyContext`
+  // `ctx` is now of type `MyContext`.
   const prop = ctx.customProp;
 });
 
@@ -290,23 +294,24 @@ import type {
   UserFromGetMe,
 } from "https://cdn.skypack.dev/@grammyjs/types?dts";
 
-// Define custom context class
+// Define a custom context class.
 class MyContext extends Context {
-  // custom properties on context
+  // Set some custom properties.
   public readonly customProp: number;
+
   constructor(update: Update, api: Api, me: UserFromGetMe) {
     super(update, api, me);
     this.customProp = me.username.length * 42;
   }
 }
 
-// Pass the constructor of the custom context class as an option
+// Pass the constructor of the custom context class as an option.
 const bot = new Bot("<token>", {
   ContextConstructor: MyContext,
 });
 
 bot.on("message", (ctx) => {
-  // `ctx` is now of type `MyContext`
+  // `ctx` is now of type `MyContext`.
   const prop = ctx.customProp;
 });
 
@@ -330,7 +335,7 @@ There are two different kinds of context flavors.
 The basic one is called _additive context flavor_, and whenever we talk about context flavoring, we just mean this basic form.
 Let's look at how it works.
 
-As an example, when you have [session data](/plugins/session.md), you must register `ctx.session` on the `Context` type.
+As an example, when you have [session data](/plugins/session.md), you must register `ctx.session` on the context type.
 Otherwise,
 
 1. you cannot install the built-in sessions plugin, and
@@ -348,7 +353,7 @@ interface SessionFlavor<S> {
 }
 ```
 
-The `SessionFlavor` type ([API Reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#SessionFlavor)) is straightforward: it defines only the property `session`.
+The `SessionFlavor` type ([API Reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/SessionFlavor)) is straightforward: it defines only the property `session`.
 It takes a type parameter that will define the actual structure of the session data.
 
 How is that useful?
@@ -357,7 +362,7 @@ This is how you can flavor your context with session data:
 ```ts
 import { Context, SessionFlavor } from "grammy";
 
-// Declare `ctx.session` to be of type `string`
+// Declare `ctx.session` to be of type `string`.
 type MyContext = Context & SessionFlavor<string>;
 ```
 
@@ -365,7 +370,7 @@ You can now use the session plugin, and you have access to `ctx.session`:
 
 ```ts
 bot.on("message", (ctx) => {
-  // Now `str` is of type `string`
+  // Now `str` is of type `string`.
   const str = ctx.session;
 });
 ```

@@ -1,7 +1,7 @@
 # Router (`router`)
 
-The `Router` class ([API Reference](https://doc.deno.land/https/deno.land/x/grammy_router/router.ts)) provides a way to structure your bot by routing context objects to different parts of your code.
-It is a more sophisticated version of `bot.route` on `Composer` ([grammY API Reference](https://doc.deno.land/https/deno.land/x/grammy/mod.ts#Composer))
+The `Router` class ([API Reference](https://doc.deno.land/https://deno.land/x/grammy_router/router.ts)) provides a way to structure your bot by routing context objects to different parts of your code.
+It is a more sophisticated version of `bot.route` on `Composer` ([grammY API Reference](https://doc.deno.land/https://deno.land/x/grammy/mod.ts/~/Composer#route))
 
 ## Example
 
@@ -9,7 +9,7 @@ Here is an example of a router usage that speaks for itself.
 
 ```ts
 const router = new Router(ctx => {
-  // determine route to pick here
+  // Determine route to pick here.
   return 'key'
 })
 
@@ -38,24 +38,26 @@ Only if both values are known, the bot can tell the user how many days are left.
 This is how a bot like that could be implemented:
 
 <CodeGroup>
-  <CodeGroupItem title="TS" active>
+  <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import { Bot, Context, Keyboard, session, SessionFlavor } from "grammy";
 import { Router } from "@grammyjs/router";
 
 interface SessionData {
-  step: "idle" | "day" | "month"; // what step of the form we are at
-  dayOfMonth?: number; // birthday date
-  month?: number; // birthday month
+  step: "idle" | "day" | "month"; // which step of the form we are on
+  dayOfMonth?: number; // day of birthday
+  month?: number; // month of birthday
 }
+
 type MyContext = Context & SessionFlavor<SessionData>;
 
 const bot = new Bot<MyContext>("");
-// Use session
+
+// Use session.
 bot.use(session({ initial: (): SessionData => ({ step: "idle" }) }));
 
-// Define some commands
+// Define some commands.
 bot.command("start", async (ctx) => {
   await ctx.reply(`Welcome!
 I can tell you in how many days it is your birthday!
@@ -69,7 +71,7 @@ bot.command("birthday", async (ctx) => {
     // Information already provided!
     await ctx.reply(`Your birthday is in ${getDays(month, day)} days!`);
   } else {
-    // Missing information, enter router-based form
+    // Missing information, enter router-based form.
     ctx.session.step = "day";
     await ctx.reply(
 "Please send me the day of month \
@@ -78,10 +80,10 @@ of your birthday as a number!",
   }
 });
 
-// Use router
+// Use router.
 const router = new Router<MyContext>((ctx) => ctx.session.step);
 
-// Define step that handles the day
+// Define step that handles the day.
 router.route("day", async (ctx) => {
   const day = parseInt(ctx.msg?.text ?? "", 10);
   if (isNaN(day) || day < 1 || 31 < day) {
@@ -104,7 +106,7 @@ router.route("day", async (ctx) => {
 });
 
 router.route("month", async (ctx) => {
-  // should not happen, unless session data is corrupted
+  // Should not happen, unless session data is corrupted.
   const day = ctx.session.dayOfMonth;
   if (day === undefined) {
     await ctx.reply("I need your day of month!");
@@ -138,7 +140,7 @@ router.route("idle", async (ctx) => {
 bot.use(router); // register the router
 bot.start();
 
-// Date conversion utils:
+// Date conversion utils
 const months = [
   "Jan",
   "Feb",
@@ -153,6 +155,7 @@ const months = [
   "Nov",
   "Dec",
 ];
+
 function getDays(month: number, day: number) {
   const bday = new Date();
   const now = Date.now();
@@ -165,17 +168,18 @@ function getDays(month: number, day: number) {
 ```
 
 </CodeGroupItem>
-  <CodeGroupItem title="JS">
+  <CodeGroupItem title="JavaScript">
 
 ```js
 const { Bot, Context, Keyboard, session, SessionFlavor } = require("grammy");
 const { Router } = require("@grammyjs/router");
 
 const bot = new Bot("");
-// Use session
+
+// Use session.
 bot.use(session({ initial: () => ({ step: "idle" }) }));
 
-// Define some commands
+// Define some commands.
 bot.command("start", async (ctx) => {
   await ctx.reply(`Welcome!
 I can tell you in how many days it is your birthday!
@@ -189,7 +193,7 @@ bot.command("birthday", async (ctx) => {
     // Information already provided!
     await ctx.reply(`Your birthday is in ${getDays(month, day)} days!`);
   } else {
-    // Missing information, enter router-based form
+    // Missing information, enter router-based form.
     ctx.session.step = "day";
     await ctx.reply(
 "Please send me the day of month \
@@ -198,10 +202,10 @@ of your birthday as a number!",
   }
 });
 
-// Use router
+// Use router.
 const router = new Router((ctx) => ctx.session.step);
 
-// Define step that handles the day
+// Define step that handles the day.
 router.route("day", async (ctx) => {
   const day = parseInt(ctx.msg?.text ?? "", 10);
   if (isNaN(day) || day < 1 || 31 < day) {
@@ -224,7 +228,7 @@ router.route("day", async (ctx) => {
 });
 
 router.route("month", async (ctx) => {
-  // should not happen, unless session data is corrupted
+  // Should not happen, unless session data is corrupted.
   const day = ctx.session.dayOfMonth;
   if (day === undefined) {
     await ctx.reply("I need your day of month!");
@@ -258,7 +262,7 @@ router.route("idle", async (ctx) => {
 bot.use(router); // register the router
 bot.start();
 
-// Date conversion utils:
+// Date conversion utils
 const months = [
   "Jan",
   "Feb",
@@ -298,17 +302,18 @@ import {
 import { Router } from "https://deno.land/x/grammy_router/router.ts";
 
 interface SessionData {
-  step: "idle" | "day" | "month"; // what step of the form we are at
-  dayOfMonth?: number; // birthday date
-  month?: number; // birthday month
+  step: "idle" | "day" | "month"; // which step of the form we are on
+  dayOfMonth?: number; // day of birthday
+  month?: number; // month of birthday
 }
 type MyContext = Context & SessionFlavor<SessionData>;
 
 const bot = new Bot<MyContext>("");
-// Use session
+
+// Use session.
 bot.use(session({ initial: (): SessionData => ({ step: "idle" }) }));
 
-// Define some commands
+// Define some commands.
 bot.command("start", async (ctx) => {
   await ctx.reply(`Welcome!
 I can tell you in how many days it is your birthday!
@@ -331,10 +336,10 @@ of your birthday as a number!",
   }
 });
 
-// Use router
+// Use router.
 const router = new Router<MyContext>((ctx) => ctx.session.step);
 
-// Define step that handles the day
+// Define step that handles the day.
 router.route("day", async (ctx) => {
   const day = parseInt(ctx.msg?.text ?? "", 10);
   if (isNaN(day) || day < 1 || 31 < day) {
@@ -357,7 +362,7 @@ router.route("day", async (ctx) => {
 });
 
 router.route("month", async (ctx) => {
-  // should not happen, unless session data is corrupted
+  // Should not happen, unless session data is corrupted.
   const day = ctx.session.dayOfMonth;
   if (day === undefined) {
     await ctx.reply("I need your day of month!");
@@ -391,7 +396,7 @@ router.route("idle", async (ctx) => {
 bot.use(router); // register the router
 bot.start();
 
-// Date conversion utils:
+// Date conversion utils
 const months = [
   "Jan",
   "Feb",
@@ -420,7 +425,7 @@ function getDays(month: number, day: number) {
 </CodeGroupItem>
 </CodeGroup>
 
-::: tip Breaking up the code
+::: tip Breaking Up the Code
 If you feel like your code gets too complex, you can split it across several files.
 You can read more about how to scale your codebase in [this advanced section](/advanced/structuring.md).
 :::
@@ -433,4 +438,4 @@ If both values are known, the bot computes the remaining days and sends it back 
 
 - Name: `router`
 - Source: <https://github.com/grammyjs/router>
-- Reference: <https://doc.deno.land/https/deno.land/x/grammy_router/router.ts>
+- Reference: <https://doc.deno.land/https://deno.land/x/grammy_router/router.ts>
