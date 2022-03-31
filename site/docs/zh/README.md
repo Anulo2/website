@@ -15,7 +15,7 @@ features:
     details: grammY 是开放的，通过插件让它完全适合你的需要。
   - title: 可扩展
     details: grammY 在你 bot 拥有较多流量时提供可靠的帮助.
-footer: Copyright © 2021
+footer: Copyright © 2021-2022
 permalink: /zh/
 ---
 
@@ -84,5 +84,5 @@ bot.start();
 
 ---
 
-grammY 支持 Telegram Bot API 5.5，该 API 于 2021 年 12 月 7 日 [发布](https://core.telegram.org/bots/api#december-7-2021)。
-(新增: 响应加入请求)
+grammY 支持 Telegram Bot API 5.7，该 API 于 2022 年 1 月 31 日 [发布](https://core.telegram.org/bots/api#january-31-2022)。
+(新增: 视频贴纸)

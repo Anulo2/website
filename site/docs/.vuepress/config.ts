@@ -164,16 +164,21 @@ export default defineUserConfig<DefaultThemeOptions>({
                 ],
               },
               {
-                text: "Official",
+                text: "Built-in",
                 children: [
                   {
-                    text: "Sessions and Storing Data (built-in)",
+                    text: "Sessions and Storing Data",
                     link: "/plugins/session.md",
                   },
                   {
-                    text: "Inline and Custom Keyboards (built-in)",
+                    text: "Inline and Custom Keyboards",
                     link: "/plugins/keyboard.md",
                   },
+                ],
+              },
+              {
+                text: "Official",
+                children: [
                   {
                     text: "Interactive Menus (menu)",
                     link: "/plugins/menu.md",
@@ -207,12 +212,16 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/plugins/files.md",
                   },
                   {
-                    text: "Internationalization (i18n)",
-                    link: "/plugins/i18n.md",
+                    text: "Internationalization (fluent)",
+                    link: "/plugins/fluent.md",
                   },
                   {
                     text: "Router (router)",
                     link: "/plugins/router.md",
+                  },
+                  {
+                    text: "Emoji (emoji)",
+                    link: "/plugins/emoji.md",
                   },
                   {
                     text: "Parse Mode (parse-mode)",
@@ -786,16 +795,21 @@ export default defineUserConfig<DefaultThemeOptions>({
                 ],
               },
               {
-                text: "官方维护",
+                text: "内置插件",
                 children: [
                   {
-                    text: "会话与数据储存（内置）",
+                    text: "会话与数据储存",
                     link: "/zh/plugins/session.md",
                   },
                   {
-                    text: "Inline 与自定义 Keyboards（内置）",
+                    text: "Inline 与自定义 Keyboards",
                     link: "/zh/plugins/keyboard.md",
                   },
+                ],
+              },
+              {
+                text: "官方维护",
+                children: [
                   {
                     text: "互动菜单（menu）",
                     link: "/zh/plugins/menu.md",
@@ -829,12 +843,16 @@ export default defineUserConfig<DefaultThemeOptions>({
                     link: "/zh/plugins/files.md",
                   },
                   {
-                    text: "国际化 (i18n)",
-                    link: "/zh/plugins/i18n.md",
+                    text: "国际化 (fluent)",
+                    link: "/zh/plugins/fluent.md",
                   },
                   {
                     text: "路由器 (router)",
                     link: "/zh/plugins/router.md",
+                  },
+                  {
+                    text: "Emoji (emoji)",
+                    link: "/zh/plugins/emoji.md",
                   },
                   {
                     text: "解析模式 (parse-mode)",

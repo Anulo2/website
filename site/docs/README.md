@@ -15,7 +15,7 @@ features:
     details: grammY is open and can be extended by plugins to make it fit exactly your needs.
   - title: Scalable
     details: grammY has you covered when your bot gets popular and the traffic increases.
-footer: Copyright © 2021
+footer: Copyright © 2021-2022
 permalink: /
 ---
 
@@ -43,7 +43,7 @@ import { Bot } from "grammy";
 
 const bot = new Bot(""); // <-- put your bot token here (https://t.me/BotFather)
 
-// Reply to any message with "Hi there!".
+// Reply to any message with “Hi there!”.
 bot.on("message", (ctx) => ctx.reply("Hi there!"));
 
 bot.start();
@@ -57,7 +57,7 @@ const { Bot } = require("grammy");
 
 const bot = new Bot(""); // <-- put your bot token here (https://t.me/BotFather)
 
-// Reply to any message with "Hi there!".
+// Reply to any message with “Hi there!”.
 bot.on("message", (ctx) => ctx.reply("Hi there!"));
 
 bot.start();
@@ -71,7 +71,7 @@ import { Bot } from "https://deno.land/x/grammy/mod.ts";
 
 const bot = new Bot(""); // <-- put your bot token here (https://t.me/BotFather)
 
-// Reply to any message with "Hi there!".
+// Reply to any message with “Hi there!”.
 bot.on("message", (ctx) => ctx.reply("Hi there!"));
 
 bot.start();
@@ -84,5 +84,5 @@ Works! :tada:
 
 ---
 
-grammY supports the Telegram Bot API 5.5 which was [released](https://core.telegram.org/bots/api#december-7-2021) on December 7, 2021.
-(Last highlight: Responses to Join Requests)
+grammY supports the Telegram Bot API 5.7 which was [released](https://core.telegram.org/bots/api#january-31-2022) on January 31, 2022.
+(Last highlight: Video Stickers)

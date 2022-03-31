@@ -2,7 +2,7 @@
 
 这里收集了一些 [关于 grammY 本身](#关于-grammy-的问题)，[常见错误](#为什么我会收到这个错误) 和 [Deno](#关于-deno-的问题) 的常见问题。
 
-如果这个 FAQ 不能答复你的问题，你也应该看看 Telegram 团队写的 Bot FAQ。
+如果这个 FAQ 不能答复你的问题，你也应该看看 Telegram 团队写的 [Bot FAQ]((https://core.telegram.org/bots/faq))。
 
 ## 关于 grammY 的问题
 
@@ -127,7 +127,7 @@ Telegram 会这样做以保护他们的用户。
 - 它有一个经过审查的标准库。
 
 > Deno 是由发明 Node.js 的同一个人 Ry 创造的。
-> 他在 [这个视频]](https://youtu.be/M3BM9TB-8yA) 里总结了他对 Node.js 的 10 个遗憾。
+> 他在 [这个视频](https://youtu.be/M3BM9TB-8yA) 里总结了他对 Node.js 的 10 个遗憾。
 
 grammY 实际上在编写时是优先 Deno，然后再支持 Node.js。
 
