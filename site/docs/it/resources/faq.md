@@ -55,10 +55,69 @@ Potrebbe sembrare che richieda più codice ma in realtà è una soluzione molto 
 
 ### 401 Unauthorized
 
+Il token del bot è errato.
+Magari tu pensi sia corretto.
+Non lo è.
+Vai su [@BotFather](https.//t.me/BotFather) per vedere quale è il tuo token.
+
+### 403 Forbidden: bot was blocked by the user
+
+Probabilmente hai provato a mandare un messaggio ad un utente ed hai incontrato questo problema.
+
+Quando un utente blocca il tuo bot, non puoi più mandargli messagi o interagire con loro in qualunque altro modo (almeno che il tuo bot non sia stato invitato in un gruppo dove l'utente è presente).
+Telegram fa questo per proteggere i propri utenti.
+Non puoi farci nulla al riguardo.
+
+Le opzioni che hai sono:
+
+- Gestisci l'errore e per esempio rimuovi i dati dell'utente dalla tua base di dati.
+- Ignroa l'errore.
+- Ascolta per aggiornamenti `my_chat_member` tramite `bot.on("my_chat_member")` così da essere avvisato quando un utente blocca il tuo bot.
+  Suggerimento: Confronta il campo `status` del vecchio e nuovo utente. 
+
+### 404 Not found
+
+Se accade mentre avvii il bot, il tuo token è errato.
+Vai su [@BotFather](https.//t.me/BotFather) per vedere quale è il tuo token.
+
+Se il tuo bot funziona correttamente la maggior parte delle volte e all'improvviso incontri un 404, stai facendo qualcosa di molto strambo.
+Facci la tua domanda nel gruppo.
+
+### 409 Conflict: terminated by other getUpdates request
+
+Stai eseguendo 2 istanze del tuo bot.
+Puoi eseguire solo un'istanza del tuo bot.
+
+Se sei convinto di aver eseguito il tuo bot una sola volta, puoi revocare il token del bot.
+Ciò fermerà tutte le altre istanze.
+Vai su [@BotFather](https.//t.me/BotFather) per fare ciò.
+
+### 429: Too Many Requests: retry after X
+
+Congratulazioni.
+Sei incappato in uno degli errori più difficili da risolvere.
+
+Ci sono due possibili casi.
+
+Uno: Il tuo bot non ha molti utenti.
+In quel caso stai mandando troppe richieste ai server telegram.
+Soluzione: non farlo.
+Dovresti pensare seriamente a come ridurre il numero di chiamate alla API.
+
+Due: Il tuo bot sta diventando molto popolare e ha tanti utenti (centinaia di migliaia).
+Ti sei già assicurato di fare il numero minimo di richieste alla API e _comunque_ incorri in questi errori (chiamati flood wait).
+
+Ci sono un po' di cose che puoi fare.
+
+1. Leggi [questo articolo della documentazione](/advanced/flood.md) per ottenere una comprensione base della situazione.
+2. Utilizza [il plugin `transformer-throttler`](/plugins/transformer-throttler.md).
+3. Utilizza [il plugin `auto-retry`](/plugins/auto-retry.md).
+4. Vieni a chiedere aiuto nella nostra chat. Ci sono persone con molta esperienza.
+5. È possibile chiedere a telegram di aumentare i limiti ma è altamente improbabile che succeda se non hai fatto i passaggi 1-3 prima.
 
 ## Domande Riguardanti Deno
 
-## Perchè supportate Deno
+### Perchè supportate Deno
 
 Alcune delle motivazioni per cui preferiamo Deno a Node sono:
 
@@ -68,18 +127,18 @@ Alcune delle motivazioni per cui preferiamo Deno a Node sono:
 - Non serve mantenere `package.json` oppure `node_modules`.
 - Ha una libreria standardizzata revisionata
 
-> Deno è stato creato da Ry, la stessa persona che ha inventato Node.
+> Deno è stato creato da Ryan Dahl, la stessa persona che ha inventato Node.js.
 > Ha riassunto i suoi 10 rimorsi riguardo Node in [questo video](https://youtu.be/M3BM9TB-8yA).
 
 grammY è scritto per supportare primariamente Deno ed essere retrocompatibile con Node.
 
-Ti potrebbe anche interessare [10 Things I Regret About Node.js - Ryan Dahl - JSConf EU](https://youtu.be/M3BM9TB-8yA).
+### Dove posso eseguire un'app Deno?
 
-## Dove posso eseguire un'app Deno?
+Siccome deno è nuovo e il suo ecosistema piccolo, il numero di posti in cui puoi ospitare una app Deno sono inferiori rispetto a quelli per Node.js.
 
-Siccome deno è piccolo e il suo sistema piccolo, il numero di posti in cui puoi ospitare una app Deno sono inferiori rispetto a quelli per Node.js.
 Qui alcune opzioni per ospitare un'app Deno:
 
 1. [Cloudflare Workers](https://workers.dev)
 2. [Deno Deploy](https://deno.com/deploy)
-3. Heroku, [leggi qua](https://dev.to/ms314006/deploy-your-deno-apps-to-heroku-375h)
+3. [Heroku](https://dev.to/ms314006/deploy-your-deno-apps-to-heroku-375h)
+4. [Vercel](https://github.com/vercel-community/deno)
