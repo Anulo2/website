@@ -15,7 +15,7 @@ features:
     details: grammY è aperto e può essere esteso da aggiunte adatte alle tue necessità.
   - title: Scalabile
     details: grammY sosterrà il tuo bot quando diventerà popolare ed il traffico aumenterà.
-footer: Copyright © 2021
+footer: Copyright © 2021-2022
 permalink: /
 ---
 
@@ -35,7 +35,7 @@ I bot sono scritti in [TypeScript](https://www.typescriptlang.org) (oppure JavaS
 `npm install grammy` ed incolla il seguente codice:
 
 <CodeGroup>
-  <CodeGroupItem title="TS" active>
+  <CodeGroupItem title="TypeScript" active>
 
 ```ts
 import { Bot } from "grammy";
@@ -49,7 +49,7 @@ bot.start();
 ```
 
 </CodeGroupItem>
- <CodeGroupItem title="JS">
+ <CodeGroupItem title="JavaScript">
 
 ```ts
 const { Bot } = require("grammy");
@@ -83,5 +83,5 @@ Funziona! :tada:
 
 ---
 
-grammY Supporta la Telegram Bot API 5.4 [rilasciata](https://core.telegram.org/bots/api#november-5-2021) il 5 Novembre 2021.
-(Ultima cosa in evidenza: Richieste di entrata)
+grammY Supporta la Telegram Bot API 5.7 [rilasciata](https://core.telegram.org/bots/api#november-5-2021) il 31 Gennaio 2022.
+(Ultima cosa in evidenza: Sticker video)
