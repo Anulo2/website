@@ -20,11 +20,11 @@ Ci concentreremo su di essi per ora ma in futuro potremmo (o potresti) aggiunger
 
 ### Telegraf
 
-grammY ha le sue radici in Telegram quindi ecoc un riassunto di come questi 2 framework sono legati storicamente
+grammY ha le sue radici in Telegram quindi ecco un riassunto di come questi 2 framework sono legati storicamente.
 
 #### Un po' di storia
 
-Telegraf è una libreria fantastica e grammY non sarebbe dove è ora senza di essa. 
+Telegraf è una libreria fantastica e grammY non sarebbe dove è ora senza di essa.
 Tuttavia, Telegraf era scritto in JavaScript (nella v3).
 I tipi venivano aggiunti manualmente e mantenuti inadeguatamente, erano quindi molto incompleti, errati e non aggiornati.
 Una forte tipizzazione è cruciale in una libreria seria in quanto permette l'utilizzo di strumenti superiori e permette di iterare più velocemente sulla base di codice.
@@ -34,15 +34,12 @@ Telegraf v4 provò a sistemare ciò migrando tutto il codice a TypeScript.
 Sfortunatamente molti dei tipi risultarono troppo complessi ed erano difficili da comprendere (ma corretti).
 Inoltre, la migrazione rivelò innumerevoli problemi ([esempio](https://github.com/telegraf/telegraf/issues/1076)) nel codice che resero diffile persino trovare i tipi corretti per il codice già esistente.
 
-As a result, even though version 4.0 tried to _improve_ correctness and tooling support, it ended up making Telegraf substatially _harder to use_ than its untyped predecessor.
-Understandably, many existing users of Telegraf 3 were unwilling to upgrade.
-It also got harder for new users to get started.
+Come risultato, anche se la version 4.0 provò a _migliorare_ la correttezza e supporto alla strumentazione, rese Telegram molto più _difficile da usare_ rispetto al suo predecessore non tipizzato.
+Comprensibilmente molti utenti di Telegram 3 non volevano aggiornare.
+Diventò pure più difficile iniziare per gli utenti.
 
-**grammY takes a step back and rethinks a type-safe bot framework with approachability first.**
-This allowed to skip a lot of the frustrating discussions around how to cope with strange internal typings.
-It enabled the project to have clean, consistent, compiling code that provides users with excellent types (=editor support).
-Type safety in turn permits more advanced features that fundamentally change how we think about bot development, such as [API transformers](/advanced/transformers.md).
-
+**grammY fa un passo indietro e ripensa un framework accessibile e sicuramente tipizzato.**
+Questo 
 Today, Telegraf 3 is outdated.
 There are some unofficial forks out there that try to keep the legacy code base up to date with the evolvement of the Bot API, but their compatibility is unknown.
 Furthermore, the plugin ecosystem of Telegraf has moved on to Telegraf 4.
