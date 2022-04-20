@@ -286,10 +286,7 @@ bot.start();
 
 ```ts
 import { Bot, Context } from "https://deno.land/x/grammy/mod.ts";
-import type {
-  Update,
-  UserFromGetMe,
-} from "https://cdn.skypack.dev/@grammyjs/types?dts";
+import type { Update, UserFromGetMe } from "https://esm.sh/@grammyjs/types";
 
 // 自定义一个上下文类
 class MyContext extends Context {
@@ -401,7 +398,7 @@ type MyContext = Context & FlavorA & FlavorB & FlavorC;
 type MyContext = FlavorX<FlavorY<FlavorZ<Context>>>;
 ```
 
-你甚至可以混合添加式和转化式的，以“烹饪”出更佳的上下文。
+你甚至可以混合添加式和转化式的，以"烹饪"出更佳的上下文。
 
 ```ts
 type MyContext = FlavorX<
