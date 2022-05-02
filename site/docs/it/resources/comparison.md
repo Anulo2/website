@@ -11,11 +11,11 @@ In altre parole non usa codice di altri progetti competitori ma risulterà famil
 
 ::: consiglio Scegli prima un linguaggio di programmazione
 Dato che stai leggendo la documentazione di un framework appartenente all'ecosistema di JavaScript stai probabilmente  cercando qualcosa da eseguire su Node.js (oppure Deno).
-Tuttavia, se non è il tuo caso, scorri in giù per una comparazione tra quali linguaggi sono migliori per lo sviluppo di bot.
+Tuttavia, se non è il tuo caso, [scorri in giù]((#comparison-with-frameworks-in-other-programming-languages) per una comparazione tra quali linguaggi sono migliori per lo sviluppo di bot.
 Ovviamente troverai anche una comparazione con altri framework per altri linguaggi (principalmente Python).
 :::
 
-Ci sono principalmente 2 progetti dai quali grammY prende ispirazione: [Telegraf](https://github.com/telegraf/telegraf) e [NTBA](https://github.com/yagop/node-telegram-bot-api).
+Ci sono principalmente due progetti dai quali grammY prende ispirazione: [Telegraf](https://github.com/telegraf/telegraf) e [NTBA](https://github.com/yagop/node-telegram-bot-api).
 Ci concentreremo su di essi per ora ma in futuro potremmo (o potresti) aggiungere altre comparazioni.
 
 ### Telegraf
@@ -39,7 +39,10 @@ Comprensibilmente molti utenti di Telegram 3 non volevano aggiornare.
 Diventò pure più difficile iniziare per gli utenti.
 
 **grammY fa un passo indietro e ripensa un framework accessibile e sicuramente tipizzato.**
-Questo 
+Questo permise di saltare molte delle discussioni sul come affrontare strane tipizzazioni interne.
+Permise al progetto di avere un codice pulito e consistente che fornisce agli utenti un'ottima tipizzazione (=supporto negli editor).
+La sicurezza fornita dalla tipizzazione permette possibiltà avanzante che cambiano radicalmente il modo in cui si sviluppano bot, come ad esempio [API transformers](/advanced/transformers.md).
+
 Today, Telegraf 3 is outdated.
 There are some unofficial forks out there that try to keep the legacy code base up to date with the evolvement of the Bot API, but their compatibility is unknown.
 Furthermore, the plugin ecosystem of Telegraf has moved on to Telegraf 4.
