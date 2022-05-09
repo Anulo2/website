@@ -64,7 +64,21 @@ Qualunque codice scritto per Telegraf funzionerà anche per grammY con variazion
 (Lo stesso non è valido al contrario in quanto molte funzionalità di grammY non sono presenti su Telegraf.)
 
 Il principale vantaggio di grammY rispetto a Telegram 3.x è **un sostanzialmente miglior supporto al tooling**.
+Telegraf 3 è scritto in JavaScript.
+I tipi inclusi sono incorretti ed incompleti, e i tipo della Bot API sono vecchi di anni.
+Come risultato non c'è un supporto stabile per l'auto completamento o controllo di scrittura sul codice del bot.
+L'esperienza insegna che solitamente devi eseguire il bot per scoprire se il tuo codice funzioni.
 
+Al contrario, grammY è scritto puramente in TypeScript.
+Questo permette al tuo IDE (ad esempio VSCode) di analizzare il tuo codice mentre lo scrivi, ed assisterti.
+In aggiunta può mostrati l'intera Telegram Bot API in linea, la documentazione del sito è disponibile sovrapponendo il mouse con qualunque nome o elemento del tuo codice.
+
+Un altro vantaggio notevole è che puoi finalmente **scrivere i tuoi bot in TypeScript**:
+Questo è stato difficile in quanto le annotazioni per i tipi di Telegraf errate prevenivano del codice perfettamente corretto dal compilare, incoraggiando gli utenti a non controllare il proprio codice.
+Tuttavia, codice sicuramente tipizzato è un vantaggio sostanziale in qualunque progetto più serio.
+
+grammY e Telegraf hanno codice alla base diverso.
+Liberandoci 
 
 #### Comparison to v3
 
