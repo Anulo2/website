@@ -43,11 +43,28 @@ Questo permise di saltare molte delle discussioni sul come affrontare strane tip
 Permise al progetto di avere un codice pulito e consistente che fornisce agli utenti un'ottima tipizzazione (=supporto negli editor).
 La sicurezza fornita dalla tipizzazione permette possibiltà avanzante che cambiano radicalmente il modo in cui si sviluppano bot, come ad esempio [API transformers](/advanced/transformers.md).
 
-Today, Telegraf 3 is outdated.
-There are some unofficial forks out there that try to keep the legacy code base up to date with the evolvement of the Bot API, but their compatibility is unknown.
-Furthermore, the plugin ecosystem of Telegraf has moved on to Telegraf 4.
-Most plugins developers do not maintain versions for third-party forks of old Telegraf versions.
-Based on the fact that Telegraf hangs somewhere between version 3 and 4, it makes sense to compare grammY to both versions individually.
+Ad oggi, Telegraf 3 non è più aggiornato.
+Ci sono alcune derivazioni non ufficiali che cercano di tenere il codice aggiornato per stare al passo con la Bot API, ma la loro compatibilità è sconosciuta.
+Oltre a questo il sistema delle aggiunte di Telegraf è stato mosso a Telegraf 4.
+La maggior parte degli sviluppatori di aggiunte non mantiene versioni dedicate a derivate non ufficiali di Telegraf.
+Dato che Telegraf se ne sta tra le versione 3 e 4 ha senso comparare grammY con entrambe individualmente.
+
+#### Differenze con la v3
+
+Data la loro storia condivisa, grammY e Telgraf hanno molto in comune.
+Entrambi hanno un [sistema middleware](/guide/middleware.md) nel loro nucleo.
+Condividono inoltre molta della sintassi base:
+
+```ts
+// Funziona sia su grammY e Telegraf.
+bot.on("message", (ctx) => ctx.reply("Hi!"));
+```
+
+Qualunque codice scritto per Telegraf funzionerà anche per grammY con variazioni minime.
+(Lo stesso non è valido al contrario in quanto molte funzionalità di grammY non sono presenti su Telegraf.)
+
+Il principale vantaggio di grammY rispetto a Telegram 3.x è **un sostanzialmente miglior supporto al tooling**.
+
 
 #### Comparison to v3
 
