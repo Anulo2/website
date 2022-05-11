@@ -78,81 +78,55 @@ Questo è stato difficile in quanto le annotazioni per i tipi di Telegraf errate
 Tuttavia, codice sicuramente tipizzato è un vantaggio sostanziale in qualunque progetto più serio.
 
 grammY e Telegraf hanno codice alla base diverso.
-Liberandoci 
+Liberandoci da codice legacy, grammY ha potuto fare grandi modifiche al sistema middleware, permettendo casi interessanti come [query per filtrare](/guide/filter-queries.md), [error boundaries](/guide/errors.md#error-boundaries), [API transformers](/advanced/transformers.md), e molto altro.
+Questo permette anche lo sviluppo di plugin altrimenti impossibile su Telegraf.
 
-#### Comparison to v3
+Il principale vantaggio di Telegraf rispetto a grammY, per ora, è **l'essere conosciuto da molte più persone**.
+Gli utenti di Telegraf sono divisi tra le 2 versioni, ma anche se divisi anche singolarmente sono di più che l'interezza degli utenti di grammY.
+Questo significa che si possono trovare molte più storie su internet da parte di utenti di Telegraf, guide non ufficiali da altri sviluppatori che possono aiutarti se la documentazione o la libreria ha delle mancanze.
 
-Given their shared history, grammY and Telegraf have a lot in common.
-They both have a [middleware system](/guide/middleware.md) in their core.
-They also share a lot of their basic syntax:
+#### Differenze con la v4
 
-```ts
-// works with both grammY and Telegraf
-bot.on("message", (ctx) => ctx.reply("Hi!"));
-```
+La principale differenza di grammY rispetto a Telegraf 4.x è che è **molto più semplice**.
+Per esempio:
 
-Any code written in Telegraf will work in grammY with minimal changes.
-(Note that the oppsite is not true as many grammY features are not available to Telegraf users.)
+- grammY ha [una documentazione](/)
+  Telegraf non la ha (è stata rimpiazzata da un riferimento alla API generato automaticamente che manca di spiegazioni).
+- I tipi in grammY _semplicemente funzionano_ e seguiranno il tuo codice.
+  Su telegraf, dovrai spesso scrivere il tuo codice in un certo modo o non compilerà (anche se in realtà funzionerebbe correttamente).
+- grammY integra suggerimenti dal [riferimento ufficiali alla API per i Bot](core.telegram.org/bots/api) che ti aiutano a programmare.
+  Telegraf non fornisce alcuna informazione sul tuo codice.
 
-The main advantage of grammY over Telegraf 3.x is **substatially better tooling support**.
-Telegraf 3 is written in JavaScript.
-The shipped types are incorrect and incomplete, and the consumed Bot API types are outdated by several years.
-As a result, there is no reliable support for auto-complete or spell-checking bot code.
-Experience shows that you often have to run your bot to find out whether your code works.
+#### Riassunto
 
-In contrast, grammY is written in pure TypeScript.
-This allows your code editor (e.g. VSCode) to analyze your code while you are typing, and assist you.
-In addition, it can show the complete Telegram Bot API inline—the website's documentation will be available right at your fingertips when hovering your mouse over any name or element of your code.
+##### Vantaggi di grammY
 
-Another remarkable advantage is that you are finally able to **write your own bots in TypeScript**.
-This was hard to do because the wrong type annotations of Telegraf were preventing perfectly correct code from compiling, thus effectively encouraging users not to check their code in the first place.
-However, type-safe code is a major advantage for any non-trivial code base.
+- Più semplice di Telegraf 3 e 4
+- Supporto opportuno a TypeScript
+- Ha sia una documentazione che un riferimento alla API generato
+- Nettamente più veloce sul long polling (usando grammY runner)
+- Utenti uniti ed ecosistema
+- Sviluppo più attivo
+- Messaggi di errore utili
+- Molto più difficile finire in casi di concorrenza pericolosi
+- Creato per proteggerti dal fare errori di programmazione
+- Gira su Node.js, Deno e nel browser
 
-grammY and Telegraf have distinct code bases.
-Beeing freed from the legacy, grammY could also make substantial contributions to the underlying middleware system, enabling exciting use cases such as [filter queries](/guide/filter-queries.md), [error boundaries](/guide/errors.md#error-boundaries), [API transformers](/advanced/transformers.md), and many more.
-This also enables the development of valuable plugins that are impossible to work under Telegraf.
+##### Vantaggi di Telegraf
 
-The main advantage of Telegraf over grammY is that it is still **known by a lot more people**.
-The Telegraf community may be divided between the versions, but at this early point most of these groups are still larger than the united group of grammY users.
-This also means that you can find more stories on the internet about Telegraf users, and you will find more unofficial tutorials by other coders, which can help you if the official documentation of a library has shortcomings.
-
-#### Comparison to v4
-
-The main advantage of grammY over Telegraf 4.x is that **it is simply a lot easier**.
-For example:
-
-- grammY has [a documentation](/).
-  Telegraf does not (it was replaced by a generated API reference that lacks explanations).
-- Types in grammY _just work_ and they will follow your code.
-  In Telegraf, you will often need to write your code a certain way, otherwise it does not compile (even though it would actually work fine).
-- grammY integrates hints from [the official Bot API reference](core.telegram.org/bots/api) inline that help you while you're coding.
-  Telegraf does not give you any explanations on your code.
-
-#### Summary
-
-##### Advantages of grammY
-
-- Easier to use than Telegraf 3 and 4
-- Proper TypeScript support
-- Has both a documentation and a generated API reference
-- Significantly faster on long polling (with grammY runner)
-- United community and ecosystem
-- More actively developed
-- Helpful error messages
-- Much harder to run into dangerous race conditions
-- Designed to protect you from making programming mistakes
-- Runs on Node.js, but also on Deno and in the browser
-
-##### Advantages of Telegraf
-
-- Older, thus more mature
-- More plugins (but this is changing currently)
-- Many more example bots, both in the repository and in the wild
-- Telegraf 3 has significantly more users
+- Più vecchio, quindi più maturo
+- Più plugin (ma questo sta cambiando)
+- Molti più bot di esempio, sia nella repo che in giro
+- Telegraf 3 ha molti più utenti
 
 ### NTBA
 
-The `node-telegram-bot-api` package is the second big project that impacted the development of grammY.
+Il pacchetto `node-telegram-bot-api` è il second grande progetto che ha impattato lo sviluppo di grammY.
+Il suo principale vantaggio rispetto agli altri framework è che è dannatamente semplice.
+La sua architettura può essere descritta in una frase, mentre grammY necessita una [guida](/guide/) sul suo sito della documentazione per fare ciò.
+
+
+ is the second big project that impacted the development of grammY.
 Its main advantage over other frameworks is that it just is dead simple.
 Its architecture can be described in a single sentence, while grammY needs a [guide](/guide/) on its documentation website to do the same.
 We believe that all these explanations on the grammY website help people to get started easily, but it is tempting to have a library which does not need any explanations in the first place.
